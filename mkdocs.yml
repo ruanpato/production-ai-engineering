@@ -1,0 +1,42 @@
+# Site do handbook — conteúdo em ./content/<lang>/ (sem hack de root-as-docs_dir).
+# Markdown cru continua legível no GitHub; o MkDocs consome os mesmos arquivos.
+site_name: Engenharia de IA em Produção
+site_description: Handbook técnico sobre projetar, operar e governar sistemas de IA em produção.
+site_url: https://ruanpato.com/production-ai-engineering/
+repo_url: https://github.com/ruanpato/production-ai-engineering
+edit_uri: edit/main/content/
+
+docs_dir: content
+site_dir: site
+
+theme:
+  name: material
+  language: pt-BR
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: default
+      toggle: { icon: material/weather-night, name: Modo escuro }
+    - scheme: slate
+      toggle: { icon: material/weather-sunny, name: Modo claro }
+
+plugins:
+  - search
+  # Nomes de arquivo espelhados entre content/<lang>/ fazem o i18n folder-mode "funcionar sozinho".
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: pt-BR
+          default: true
+          name: Português (Brasil)
+        # Fase 5 (bilíngue): en em tradução incremental; páginas sem en caem no pt-BR (default).
+        - locale: en
+          name: English
+
+markdown_extensions:
+  - admonition
+  - toc: { permalink: true }
+  - pymdownx.superfences

@@ -1,0 +1,15 @@
+# Normalize line endings
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.ico binary
+
+# Keep GitHub language stats on the CONTENT (Markdown is prose => not counted
+# by default). Force Markdown to count; keep tooling/scripts out of the bar.
+*.md  linguist-detectable=true
+*.sh  linguist-detectable=false
+package-lock.json linguist-generated
+commitlint.config.js linguist-detectable=false

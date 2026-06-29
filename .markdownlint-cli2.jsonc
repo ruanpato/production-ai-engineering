@@ -1,0 +1,17 @@
+{
+  // Tuned for handbooks: multiple H1 chapters, repeated section headings,
+  // inline anchors. Catches real hygiene issues, not stylistic ones.
+  "config": {
+    "default": true,
+    "MD013": false,  // line length
+    "MD024": { "siblings_only": true },
+    "MD025": false,  // multiple top-level H1 allowed (per chapter)
+    "MD033": false,  // inline HTML (anchors)
+    "MD041": false,  // file may open with front matter/comment
+    "MD046": false,
+    "MD034": false,  // references may list bare/autolink URLs
+    "MD060": false   // table pipe spacing is cosmetic
+  },
+  "globs": ["content/**/*.md", "templates/**/*.md", "*.md"],
+  "ignores": ["node_modules", ".internal", "site", "CHANGELOG.md", "BOOK.md"]
+}
