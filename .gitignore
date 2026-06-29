@@ -1,0 +1,19 @@
+# Site build / generated
+site/
+.cache/
+# Python
+.venv/ venv/ env/ __pycache__/ *.py[cod]
+# Node (optional tooling)
+node_modules/
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+# Exports
+*.pdf *.epub
+build/ dist/
+# Internal / private (drafts, audits, scratch)
+.internal/
+.local/
+# Dev caches
+.pytest_cache/ .mypy_cache/ .ruff_cache/ .eslintcache coverage/ .coverage

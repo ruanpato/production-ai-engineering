@@ -1,0 +1,18 @@
+# lychee link checker — https://github.com/lycheeverse/lychee
+max_retries = 2
+retry_wait_time = 2
+max_concurrency = 8
+timeout = 30  # seconds; some official pages are heavy/slow
+
+# 2xx + rate-limited treated as alive.
+accept = [200, 202, 204, 206, 429]
+
+# Add verified-but-bot-blocked or heavy URLs here as needed.
+exclude = [
+  "/security/advisories/new$",
+  "^https://img\\.shields\\.io",
+  # the handbook's own published site (live only after the first deploy)
+  "^https://ruanpato\\.com/production-ai-engineering/",
+]
+
+exclude_path = [".internal", "node_modules", "site", "templates"]

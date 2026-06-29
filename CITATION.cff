@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "Se você usar este handbook, cite-o conforme abaixo."
+title: "Engenharia de IA em Produção"
+type: dataset
+authors:
+  - name: "ruanpato"
+    website: "https://github.com/ruanpato"
+version: "0.1.0"
+date-released: "2026-06-21"
+license: CC-BY-4.0
+url: "https://ruanpato.com/production-ai-engineering/"
+repository-code: "https://github.com/ruanpato/production-ai-engineering"
+keywords: [ai engineering, mlops, llmops, agentops, rag, agentic ai, production]

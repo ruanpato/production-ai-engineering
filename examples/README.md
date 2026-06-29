@@ -1,0 +1,134 @@
+# 🧪 Exemplos Práticos
+
+Este diretório vai conter os exemplos práticos referenciados pelo livro [`BOOK.md`](../BOOK.md). A matriz completa, com status e prioridade, vive em [`../docs/examples-map.md`](../docs/examples-map.md).
+
+> ⚠️ **Estado atual.** Nenhum exemplo está implementado nesta versão do projeto. Todos aparecem como **planejados** em `docs/examples-map.md`. Esta pasta existe hoje como **espaço reservado** e como referência da estrutura padrão. O repositório ainda **não deve ser tratado como coleção executável**; a v0.1 prioriza estrutura, conteúdo e mapa técnico.
+
+> 🎯 **Princípio.** Cada exemplo, quando for implementado, deve ser **"easy to run and see by yourself"**: clonar, rodar um único comando, ver funcionando localmente em minutos, sem dependência obrigatória de credenciais pagas.
+
+---
+
+## 🗂️ Sumário
+
+- [🧪 Exemplos Práticos](#-exemplos-práticos)
+  - [🗂️ Sumário](#️-sumário)
+  - [🧭 Estrutura padrão de cada exemplo](#-estrutura-padrão-de-cada-exemplo)
+  - [🚀 Como rodar](#-como-rodar)
+  - [🧰 Stack preferida](#-stack-preferida)
+  - [📊 Status atual](#-status-atual)
+  - [🧾 Contribuindo com exemplos](#-contribuindo-com-exemplos)
+  - [⚠️ Disclaimer](#️-disclaimer)
+  - [📜 Licença](#-licença)
+
+---
+
+## 🧭 Estrutura padrão de cada exemplo
+
+Cada exemplo vive em uma pasta com código identificador (`EX-XXX-NN-nome-curto/`) e tem o seguinte conteúdo mínimo:
+
+```text
+examples/EX-XXX-NN-nome-curto/
+├── README.md            # objetivo, pré-requisitos, comandos
+├── pyproject.toml       # ou requirements.txt
+├── docker-compose.yml   # quando aplicável
+├── Makefile             # comandos curtos (run, test, clean)
+├── src/                 # código-fonte
+└── tests/               # testes mínimos
+```
+
+---
+
+## 🚀 Como rodar
+
+A maioria dos exemplos segue um destes padrões:
+
+```bash
+# Padrão 1 - Python puro
+cd examples/EX-LLM-01-rag-local
+make run
+
+# Padrão 2 - Docker Compose
+cd examples/EX-AGT-03-mcp-server-minimo
+docker compose up
+
+# Padrão 3 - Pytest (eval/test harness)
+cd examples/EX-EVAL-01-pytest-golden
+make test
+```
+
+---
+
+## 🧰 Stack preferida
+
+| Categoria | Ferramenta |
+|---|---|
+| Linguagem | Python 3.11+ |
+| Framework web | FastAPI |
+| Containerização | Docker + Docker Compose |
+| ML clássico | scikit-learn, pandas, pandera |
+| Experimentos | MLflow (local) |
+| LLM local | Ollama |
+| Vector DB local | Qdrant ou Chroma |
+| Search híbrido | OpenSearch local (em alguns exemplos) |
+| Agent frameworks | LangGraph, OpenAI Agents SDK (com fallback local) |
+| Tracing | OpenTelemetry + Jaeger |
+| Policy-as-code | OPA + Rego |
+| Workflow engine | FSM simples em Python para exemplos curtos; Temporal apenas onde durabilidade/long-running é o ponto demonstrado |
+| Testes | pytest, hypothesis |
+| Eval | Ragas, pytest-snapshot |
+
+> ⚠️ Quando um exemplo exige modelo na nuvem (ex.: comparação direta com GPT/Claude), há **fallback local** documentado no README do exemplo.
+
+---
+
+## 📊 Status atual
+
+A primeira fase do projeto entrega **estrutura editorial** - os exemplos ainda **não** foram implementados e fazem parte do roadmap, não da entrega atual. Eles estão **planejados** em [`../docs/examples-map.md`](../docs/examples-map.md), com prioridade e ordem sugerida de execução.
+
+A primeira leva sugerida para implementação:
+
+1. **EX-LLM-01** - RAG local básico (Ollama + Qdrant).
+2. **EX-ML-04** - Classificador via FastAPI.
+3. **EX-AGT-01** - Agente com function calling.
+4. **EX-AGT-02** - Tool registry com versionamento.
+5. **EX-EVAL-01** - Eval harness com pytest.
+6. **EX-AGT-07** - Tracing com OpenTelemetry.
+7. **EX-SEC-01** / **EX-SEC-02** - Prompt injection (direta e indireta).
+8. **EX-HYB-01** - ML + LLM + agente roteados.
+9. **EX-COST-01** - Budget enforcer.
+10. **EX-LIFE-01** - Depreciação de tool.
+
+Cada exemplo, quando implementado, deve atualizar a matriz com o status correto (`planejado` -> `parcial` -> `implementado`).
+
+---
+
+## 🧾 Contribuindo com exemplos
+
+Antes de submeter um novo exemplo:
+
+- Verifique se ele está em `../docs/examples-map.md`.
+- Se não estiver, abra uma issue propondo o exemplo.
+- Siga a estrutura padrão acima.
+- Mantenha as restrições: rodar em ≤ 10 minutos, sem credenciais pagas obrigatórias, com testes mínimos.
+
+Detalhes completos em [`../docs/contributing.md`](../docs/contributing.md).
+
+---
+
+## ⚠️ Disclaimer
+
+Os exemplos têm fins **didáticos**. Eles **não** são código de produção:
+
+- Sem hardening completo de segurança.
+- Sem suporte oficial.
+- Sem garantia de funcionamento em versões futuras de dependências.
+
+Para usar trechos em produção, revise, adicione testes, hardening, segredos adequados, observabilidade e tratamento de erros conforme as boas práticas descritas no `BOOK.md`.
+
+---
+
+## 📜 Licença
+
+Os exemplos práticos ainda são **planejados** - esta pasta hoje serve apenas como espaço reservado e como referência da estrutura padrão.
+
+Quando os exemplos forem implementados, o código aqui em `examples/` será licenciado sob **MIT License** via [`../LICENSE-CODE`](../LICENSE-CODE). O conteúdo textual do livro e da documentação continua sob CC BY 4.0 via [`../LICENSE`](../LICENSE). Detalhes em [`../docs/licensing.md`](../docs/licensing.md).
