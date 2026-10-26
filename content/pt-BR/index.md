@@ -92,5 +92,6 @@ Detalhes em [`CONTRIBUTING.md`](https://github.com/ruanpato/production-ai-engine
 - **Tópicos emergentes** (A2A, MCP Authorization, FinOps for AI, parte do tool lifecycle) têm a **maturidade declarada** no próprio capítulo.
 - **Profundidade desigual.** Algumas partes estão mais maduras que outras; trechos ainda em forma de outline serão expandidos em ciclos futuros. Capítulos curtos seguem o mesmo padrão editorial dos longos apenas quando isso ajuda a leitura por consulta.
 - **Tese central evita repetição literal.** Ela aparece no Prefácio e na Parte 0, e os capítulos subsequentes usam referências curtas (ex.: "como discutido na Parte 0") em vez de reapresentá-la inteira.
+- **Capítulos em revisão.** Os Caps. 5.7 (avaliação de agentes) e 7.8 (pós-treinamento em produção) têm `status: review`: completos, aguardando revisão externa.
 
 ---

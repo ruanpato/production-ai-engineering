@@ -1,7 +1,7 @@
 ---
 title: "Referências"
 lang: pt-BR
-order: 97
+order: 99
 status: stable
 tags: [referencia]
 ---
@@ -25,7 +25,7 @@ Bibliografia organizada por tema. Cada entrada inclui, quando aplicável:
 ### 📑 Papers e livros
 
 - **Mitchell et al. - *Model Cards for Model Reporting* (FAT* 2019).** Paper original - <https://arxiv.org/abs/1810.03993>. Base para Model Cards. Usado em Cap. 1.7 e 1.11.
-- **Gebru et al. - *Datasheets for Datasets* (CACM 2021).** Paper -<https://arxiv.org/abs/1803.09010>. Base para Dataset Cards. Cap. 1.2, 1.7.
+- **Gebru et al. - *Datasheets for Datasets* (CACM 2021).** Paper -<https://arxiv.org/abs/1803.09010>. Base para Dataset Cards. Cap. 1.2, 1.7, 7.8.
 - **Hardt, Price & Srebro - *Equality of Opportunity in Supervised Learning* (NIPS 2016).** Paper - <https://arxiv.org/abs/1610.02413>. Base para equalized odds e equality of opportunity. Cap. 1.11.
 - **Guo et al. - *On Calibration of Modern Neural Networks* (ICML 2017).** Paper - <https://arxiv.org/abs/1706.04599>. Calibração e ECE. Cap. 1.3.
 - **Ribeiro, Singh & Guestrin - *"Why Should I Trust You?" Explaining the Predictions of Any Classifier* (KDD 2016).** Paper -<https://arxiv.org/abs/1602.04938>. LIME. Cap. 1.11.
@@ -74,8 +74,8 @@ Bibliografia organizada por tema. Cada entrada inclui, quando aplicável:
 - **Lin et al. - *AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration* (MLSys 2024).** Paper -<https://arxiv.org/abs/2306.00978>. Cap. 2.2.
 - **Xiao et al. - *SmoothQuant* (ICML 2023).** Paper -<https://arxiv.org/abs/2211.10438>. Cap. 2.2.
 - **OpenAI - *gpt-oss-120b & gpt-oss-20b Model Card* (2025).** Paper - <https://arxiv.org/abs/2508.10925>. Pesos MoE pós-treinados em MXFP4. Cap. 2.2.
-- **Biderman et al. - *LoRA Learns Less and Forgets Less* (TMLR 2024).** Paper - <https://arxiv.org/abs/2405.09673>. Limites de LoRA em continued pretraining e instruction tuning; esquece menos. Cap. 7.6.
-- **Gekhman et al. - *Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?* (EMNLP 2024).** Paper - <https://arxiv.org/abs/2405.05904>. Fatos novos aprendidos devagar; alucinação cresce. Cap. 7.6.
+- **Biderman et al. - *LoRA Learns Less and Forgets Less* (TMLR 2024).** Paper - <https://arxiv.org/abs/2405.09673>. Limites de LoRA em continued pretraining e instruction tuning; esquece menos. Cap. 7.6, 7.8.
+- **Gekhman et al. - *Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?* (EMNLP 2024).** Paper - <https://arxiv.org/abs/2405.05904>. Fatos novos aprendidos devagar; alucinação cresce. Cap. 7.6, 7.8.
 - **Ovadia et al. - *Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs* (2024).** Paper - <https://arxiv.org/abs/2312.05934>. RAG supera fine-tuning não supervisionado para conhecimento. Cap. 2.10, 7.6.
 - **Chen et al. - *MEDITRON-70B: Scaling Medical Pretraining for Large Language Models* (2023).** Paper - <https://arxiv.org/abs/2311.16079>. Continued pretraining de domínio. Cap. 7.6.
 - **Colombo et al. - *SaulLM-7B: A pioneering Large Language Model for Law* (2024).** Paper - <https://arxiv.org/abs/2403.03883>. Continued pretraining de domínio. Cap. 7.6.
@@ -105,7 +105,7 @@ Bibliografia organizada por tema. Cada entrada inclui, quando aplicável:
 - **llama.cpp e GGUF - <https://github.com/ggml-org/llama.cpp>.** Projeto (inferência local + formato de quantização). Cap. 2.2.
 - **MLC LLM - <https://llm.mlc.ai/>.** Docs (inferência cross-hardware).
 - **Hugging Face - *Transformers: Quantization overview* -<https://huggingface.co/docs/transformers/quantization/overview>.** Backends atuais (GPT-QModel, AutoAWQ, NVFP4). Cap. 2.2.
-- **Hugging Face - *TRL: PEFT integration* -<https://huggingface.co/docs/trl/peft_integration>.** Adaptadores LoRA em SFT, DPO e GRPO; referência do DPO sem segundo modelo. Cap. 7.6.
+- **Hugging Face - *TRL: PEFT integration* -<https://huggingface.co/docs/trl/peft_integration>.** Adaptadores LoRA em SFT, DPO e GRPO; referência do DPO sem segundo modelo. Cap. 7.6, 7.8.
 
 ### 📜 Blogs técnicos oficiais
 
@@ -116,8 +116,8 @@ Bibliografia organizada por tema. Cada entrada inclui, quando aplicável:
 - **Anthropic - *Code execution with MCP* -<https://www.anthropic.com/engineering/code-execution-with-mcp>.** Cap. 4.10.
 - **Anthropic - *Measuring AI agent autonomy in practice* -<https://www.anthropic.com/news/measuring-agent-autonomy>.** Cap. 3.2.
 - **OpenAI Cookbook - *Prompt Caching 201* -<https://developers.openai.com/cookbook/examples/prompt_caching_201>.** Cap. 2.3.
-- **Thinking Machines - *LoRA Without Regret* -<https://thinkingmachines.ai/blog/lora/>.** LoRA iguala full FT em datasets pequenos/médios e em RL; todas as camadas; LR 10×. Cap. 7.6.
-- **Thinking Machines - *On-Policy Distillation* -<https://thinkingmachines.ai/blog/on-policy-distillation/>.** Mid-training em documentos internos e restauração de comportamento. Cap. 7.6.
+- **Thinking Machines - *LoRA Without Regret* -<https://thinkingmachines.ai/blog/lora/>.** LoRA iguala full FT em datasets pequenos/médios e em RL; todas as camadas; LR 10×. Cap. 7.6, 7.8.
+- **Thinking Machines - *On-Policy Distillation* -<https://thinkingmachines.ai/blog/on-policy-distillation/>.** Mid-training em documentos internos e restauração de comportamento. Cap. 7.6, 7.8.
 - **Modular (LLM Inference Handbook, antes BentoML) - *Prefill–decode disaggregation* - <https://handbook.modular.com/inference-optimization/prefill-decode-disaggregation/>.** Cap. 2.1, 6.3.
 
 ---
@@ -393,8 +393,8 @@ Postura editorial: comparação neutra. Avaliar licença, providers suportados, 
 - **Ragas - Context Precision -<https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_precision/>.**
 - **Zheng et al. - *Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena* (2023).** Paper - <https://arxiv.org/abs/2306.05685>. Cap. 2.11, 5.4.
 - **Liu et al. - *G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment* (2023).** Paper - <https://arxiv.org/abs/2303.16634>. Cap. 2.11.
-- **Miller - *Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations* (2024).** Paper - <https://arxiv.org/abs/2411.00640>. Erros padrão agrupados por cluster; diferença pareada; ~1.000 itens para 3 p.p. Cap. 1.3.
-- **Bowyer, Aitchison & Ivanova - *Position: Don't Use the CLT in LLM Evals With Fewer Than a Few Hundred Datapoints* (ICML 2025).** Paper - <https://arxiv.org/abs/2503.01747>. Wilson/bayesiano pareado em amostras pequenas. Cap. 1.3.
+- **Miller - *Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations* (2024).** Paper - <https://arxiv.org/abs/2411.00640>. Erros padrão agrupados por cluster; diferença pareada; ~1.000 itens para 3 p.p. Cap. 1.3, 5.7.
+- **Bowyer, Aitchison & Ivanova - *Position: Don't Use the CLT in LLM Evals With Fewer Than a Few Hundred Datapoints* (ICML 2025).** Paper - <https://arxiv.org/abs/2503.01747>. Wilson/bayesiano pareado em amostras pequenas. Cap. 1.3, 5.7.
 - **Wasserstein & Lazar - *The ASA's Statement on p-Values: Context, Process, and Purpose* (The American Statistician, 2016).** Artigo - <https://pmc.ncbi.nlm.nih.gov/articles/PMC5088632>. Seis princípios sobre p-valores. Cap. 1.3.
 
 ---
@@ -437,6 +437,69 @@ Postura editorial: comparação neutra. Avaliar licença, providers suportados, 
 - **Chip Huyen - *AI Engineering: Building Applications with Foundation Models* (O'Reilly, 2024).** Livro.
 - **Lakshmanan, Robinson & Munn - *Machine Learning Design Patterns* (O'Reilly).** Livro.
 - **Engineering blogs de OpenAI, Anthropic, Google, Meta, Netflix, Airbnb e Uber.** Material variado sobre MLOps, LLMOps e Agentic AI.
+
+---
+
+## 🧪 16. Pós-treinamento, dados e avaliação de agentes
+
+> Fontes do Cap. 7.8 (pós-treinamento, dados e licenças) e do Cap. 5.7 (avaliação de agentes). Receitas de labs são relatórios técnicos dos próprios autores; maturidade declarada nos capítulos.
+
+### 📑 Papers e relatórios técnicos
+
+- **Lambert et al. - *Tülu 3: Pushing Frontiers in Open Language Model Post-Training* (2024).** Paper - <https://arxiv.org/abs/2411.15124>. Receita SFT -> DPO -> RLVR; descontaminação por 8-gram; split "unseen". Cap. 7.8.
+- **Grattafiori et al. - *The Llama 3 Herd of Models* (2024).** Paper - <https://arxiv.org/abs/2407.21783>. Seis rodadas SFT -> DPO; rejection sampling; DPO preferido a PPO por custo. Cap. 7.8.
+- **Yang et al. - *Qwen3 Technical Report* (2025).** Paper - <https://arxiv.org/abs/2505.09388>. Cold start -> RL de raciocínio -> fusão de modos -> RL geral. Cap. 7.8.
+- **DeepSeek-AI - *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning* (Nature 2025).** Paper - <https://arxiv.org/abs/2501.12948>. RL puro com recompensas por regra; reward model neural "suscetível a reward hacking". Cap. 7.8.
+- **OLMo Team - *2 OLMo 2 Furious* (2025).** Paper - <https://arxiv.org/abs/2501.00656>. Definição operacional de mid-training. Cap. 7.8.
+- **Ouyang et al. - *Training language models to follow instructions with human feedback* (NeurIPS 2022).** Paper - <https://arxiv.org/abs/2203.02155>. RLHF clássico (InstructGPT): SFT, reward model, RL. Cap. 7.8.
+- **Rafailov et al. - *Direct Preference Optimization: Your Language Model is Secretly a Reward Model* (NeurIPS 2023).** Paper - <https://arxiv.org/abs/2305.18290>. Loss do DPO; referência e β. Cap. 7.6, 7.8.
+- **Bai et al. - *Constitutional AI: Harmlessness from AI Feedback* (2022).** Paper - <https://arxiv.org/abs/2212.08073>. Preferências de IA guiadas por princípios. Cap. 7.8.
+- **Lee et al. - *RLAIF vs. RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback* (2023).** Paper - <https://arxiv.org/abs/2309.00267>. Definição de RLAIF. Cap. 7.8.
+- **Ethayarajh et al. - *KTO: Model Alignment as Prospect Theoretic Optimization* (2024).** Paper - <https://arxiv.org/abs/2402.01306>. Variante com feedback binário não pareado; "nenhuma variante é universalmente melhor". Cap. 7.8.
+- **Hong, Lee & Thorne - *ORPO: Monolithic Preference Optimization without Reference Model* (2024).** Paper - <https://arxiv.org/abs/2403.07691>. Variante sem modelo de referência. Cap. 7.8.
+- **Meng, Xia & Chen - *SimPO: Simple Preference Optimization with a Reference-Free Reward* (2024).** Paper - <https://arxiv.org/abs/2405.14734>. Variante sem referência. Cap. 7.8.
+- **Wang et al. - *Self-Instruct: Aligning Language Models with Self-Generated Instructions* (2023).** Paper - <https://arxiv.org/abs/2212.10560>. Geração sintética de instruções a partir de sementes. Cap. 7.8.
+- **Xu et al. - *WizardLM: Empowering Large Language Models to Follow Complex Instructions* (Evol-Instruct) (2023).** Paper - <https://arxiv.org/abs/2304.12244>. Instruções progressivamente mais difíceis. Cap. 7.8.
+- **Xu et al. - *Magpie: Alignment Data Synthesis from Scratch by Prompting Aligned LLMs with Nothing* (2024).** Paper - <https://arxiv.org/abs/2406.08464>. Síntese a partir do template de pré-consulta. Cap. 7.8.
+- **NVIDIA - *Nemotron-4 340B Technical Report* (2024).** Paper - <https://arxiv.org/abs/2406.11704>. Mais de 98% dos dados de alinhamento sintéticos. Cap. 7.8.
+- **Shumailov et al. - *AI models collapse when trained on recursively generated data* (Nature 2024).** Paper - <https://arxiv.org/abs/2305.17493>. Colapso de modelo sob treino recursivo. Cap. 7.8.
+- **Gerstgrasser et al. - *Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data* (2024).** Paper - <https://arxiv.org/abs/2404.01413>. Acumulação evita o colapso; substituição causa. Cap. 7.8.
+- **OpenAI - *GPT-4 Technical Report* (2023).** Paper - <https://arxiv.org/abs/2303.08774>. Descontaminação por substrings de 50 caracteres. Cap. 7.8.
+- **Longpre et al. - *The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI* (2023).** Paper - <https://arxiv.org/abs/2310.16787>. Licenças omitidas em 70%+ dos datasets em hubs. Cap. 7.8.
+
+### 📘 Documentação oficial
+
+- **Hugging Face - *TRL: SFT Trainer* (v1.16.0) - <https://huggingface.co/docs/trl/sft_trainer>.** Máscaras de loss (`assistant_only_loss`, `completion_only_loss`); datasets com `tools`. Cap. 7.8.
+- **Hugging Face - *TRL: DPO Trainer* (v1.16.0) - <https://huggingface.co/docs/trl/dpo_trainer>.** Formato `prompt/chosen/rejected`; referência implícita; `precompute_ref_log_probs`. Cap. 7.8.
+- **Hugging Face - *Hub: Dataset Cards* - <https://huggingface.co/docs/hub/datasets-cards>.** Template de dataset card (YAML `license`, `language`, tags). Cap. 7.8.
+
+### 📜 Blogs técnicos
+
+- **Ben Allal, Lozhkov & van Strien (Hugging Face) - *Cosmopedia: how to create large-scale synthetic data for pre-training* - <https://huggingface.co/blog/cosmopedia>.** Diversidade de prompt como gargalo da geração sintética. Cap. 7.8.
+
+### ⚖️ Termos de uso (documentos legais)
+
+- **Anthropic - *Commercial Terms of Service* (vigentes em 17/06/2025) - <https://www.anthropic.com/legal/commercial-terms>.** Proíbe usar os serviços para treinar modelos concorrentes. Cap. 7.8.
+- **Anthropic - *Consumer Terms of Service* (vigentes em 08/10/2025) - <https://www.anthropic.com/legal/consumer-terms>.** Cláusula equivalente para o produto de consumo. Cap. 7.8.
+- **Google - *Gemini API Additional Terms of Service* (vigentes em 23/03/2026) - <https://ai.google.dev/gemini-api/terms>.** Proíbe usar os serviços para desenvolver modelos concorrentes. Cap. 7.8.
+
+### 🤖 Avaliação de agentes
+
+- **Jimenez et al. - *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* (ICLR 2024).** Paper - <https://arxiv.org/abs/2310.06770>. Benchmark de issues reais em repositórios Python; base do SWE-bench Verified. Cap. 5.7.
+- **Princeton NLP / OpenAI - *SWE-bench Verified* (dataset card, 2024).** Dataset - <https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified>. Subconjunto de 500 instâncias validadas por revisão humana. Cap. 5.7.
+- **Merrill et al. - *Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces* (ICLR 2026).** Paper - <https://arxiv.org/abs/2601.11868>. Processo de verificação de tarefas (oracle, no-op, auditores, agente adversarial, ≥5 execuções); testes copiados após o agente. Cap. 5.7.
+- **Harbor - *Tasks: overview* - <https://docs.harborframework.com/tasks/overview>.** Docs (formato de tarefa: `instruction.md`, `task.toml`, `environment/`, `solution/`, `tests/`). Cap. 5.7.
+- **Terminal-Bench - *Terminal-Bench 4.0* (2026) - <https://www.tbench.ai/news/terminal-bench-4-0>.** Nota de versão (benchmark contínuo com versionamento semântico; tarefas removidas e corrigidas entre versões). Cap. 5.7.
+- **Yao et al. - *τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains* (2024).** Paper - <https://arxiv.org/abs/2406.12045>. Verificação por estado do banco de dados; métrica pass^k. Cap. 5.7.
+- **Zhu et al. - *Establishing Best Practices for Building Rigorous Agentic Benchmarks* (2025).** Paper - <https://arxiv.org/abs/2507.02825>. Agentic Benchmark Checklist; defeitos de validade de tarefa e de resultado em benchmarks maduros. Cap. 5.7.
+- **Kapoor et al. - *Holistic Agent Leaderboard (HAL)* (ICLR 2026).** Paper - <https://arxiv.org/abs/2510.11977>. Score como função de modelo, scaffold e budget; custo reportado ao lado de acurácia. Cap. 5.7.
+- **METR - *Recent Frontier Models Are Reward Hacking* (2025).** Relatório técnico - <https://metr.org/blog/2025-06-05-recent-reward-hacking>. Reward hacking em avaliação; recomendação de corrigir o verificador. Cap. 5.7.
+- **Denison et al. - *Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models* (2024).** Paper - <https://arxiv.org/abs/2406.10162>. Generalização de specification gaming até reward tampering. Cap. 5.7.
+- **Baker et al. - *Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation* (2025).** Paper - <https://arxiv.org/abs/2503.11926>. Monitor de raciocínio; trapaça ofuscada ao otimizar contra o monitor. Cap. 5.7.
+
+### 📐 Estatística para avaliação
+
+- **Chen et al. - *Evaluating Large Language Models Trained on Code* (2021).** Paper - <https://arxiv.org/abs/2107.03374>. Estimador não enviesado de pass@k. Cap. 5.7.
 
 ---
 
