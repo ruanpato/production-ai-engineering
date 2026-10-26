@@ -1,7 +1,7 @@
 ---
 title: "Glossary"
 lang: en
-order: 96
+order: 98
 status: stable
 tags: [referencia]
 ---
@@ -116,6 +116,12 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **What it is.** Mass inference execution, usually offline or in scheduled windows.
 - **Trade-off.** High latency, low cost. Useful for scoring, mass embeddings, recomputation.
 
+### Benchmark contamination
+
+- **What it is.** Presence of a benchmark's task, answer or solution in the model's training data or in sources the agent can reach during evaluation.
+- **Where it shows up.** Old public benchmarks; agents with web access that look up the solution online; internal sets published together with the verifier.
+- **Risks.** A score that measures memory or search, not capability. Mitigations: decontamination of training data, canary string, removal of tasks with public solutions, egress blocked during evaluation (Ch. 1.6, 5.7).
+
 ### Bias
 
 - **What it is.** Systematic error from excessive simplification. Leads to underfitting.
@@ -194,6 +200,12 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **Risks.** A one-off cost of one generation per chunk at each reindexing; gains measured on the author's own benchmark (top-20 retrieval failures −49% with contextual BM25 and −67% with reranking); validate on your golden set.
 - **Relationship.** Orthogonal to query-side techniques (HyDE, rewriting) and to late chunking; combines with hybrid search and reranking. See Ch. 2.7.
 
+### Continued pretraining and mid-training
+
+- **What it is.** Continuing pretraining (next-token prediction) on a domain corpus (continued pretraining) or on a curated, high-quality mix applied as a short stage before post-training (mid-training). The naming still varies across reports.
+- **Where it shows up.** Domain adaptation with stable knowledge (vocabulary, conventions); recent open-model recipes.
+- **Risks.** Requires billions of tokens; breaks instruction following without a restoration step; typical LoRA falls behind full fine-tuning in this regime. See Ch. 7.6 and 7.8.
+
 ### Continuous batching
 
 - **What it is.** A scheduling technique in LLM inference servers that adds new sequences to the batch at each step, without waiting for the batch to close.
@@ -232,6 +244,12 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **What it is.** A change in the distribution of features over time.
 - **Detection.** KS test (Kolmogorov-Smirnov), PSI, Jensen-Shannon divergence.
 
+### Decontamination
+
+- **What it is.** Removing from training the examples that overlap the evaluation suite, by n-grams (8-gram, with a per-dataset threshold) or by random substrings, before training.
+- **Where it shows up.** Curation of post-training data; preparation of the holdout and of splits by family.
+- **Risks.** Passing the n-gram check is not being clean: rephrasings escape it, especially in code and multiple choice. See Ch. 1.6 and 7.8.
+
 ### Delegated authorization
 
 - **What it is.** Permission granted to an agent to act on behalf of a user, via patterns such as OAuth 2.0.
@@ -268,6 +286,12 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **What it is.** The size of the vector produced by an embedding model (`d`). Common values: 256–4096.
 - **Trade-off.** A larger `d` tends to yield higher recall, but costs more storage, RAM and ANN latency.
 - **Relationship.** In Matryoshka models, dimension can be reduced via truncation without re-embedding.
+
+### DPO (Direct Preference Optimization)
+
+- **What it is.** A training objective that learns from chosen/rejected pairs directly, with a classification loss relative to a reference policy and a coefficient β that limits the deviation; it dispenses with a separate reward model and an online loop.
+- **Where it shows up.** Light post-training of open models (combinable with LoRA); public recipes that prefer DPO over PPO for preferences on cost.
+- **Risks.** Learns the pairs' proxy (length, confidence) if the pairs are biased; regression on uncovered capabilities. See Ch. 7.6 and 7.8.
 
 ---
 
@@ -455,6 +479,12 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 
 - **What it is.** A feature contains the label itself (or a direct function of it).
 - **Risk.** Unrealistic performance offline; disaster in production.
+
+### label_source
+
+- **What it is.** A field recorded per example (and aggregated in the dataset card) that identifies the origin of a label or preference: human annotator, LLM judge (with model and version), verifier or heuristic.
+- **Where it shows up.** Preference and demonstration datasets; dataset cards; post-training reports.
+- **Risks.** Without it, judge bias cannot be separated from real gain and the curation cannot be reproduced. See Ch. 7.8.
 
 ### LIME (Local Interpretable Model-agnostic Explanations)
 
@@ -651,6 +681,24 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **Where it shows up.** vLLM (origin); inspired similar approaches in other engines.
 - **Reference.** Kwon et al., SOSP 2023 (<https://arxiv.org/abs/2309.06180>).
 
+### Paired bootstrap
+
+- **What it is.** A method to estimate the uncertainty of the difference between two systems evaluated on the same items: resample the items (or the clusters) with replacement and recompute the mean difference on each resample; the interval comes from the distribution of those differences.
+- **Where it shows up.** Paired comparison of prompts, models or scaffolds on the same evaluation set (Ch. 1.3, 5.7).
+- **Risks.** With a few dozen items, the bootstrap also underestimates uncertainty; below a few hundred, prefer a paired Bayesian interval for the difference and Wilson or Beta for each system's rate. Resampling attempts instead of items inflates n.
+
+### pass@k
+
+- **What it is.** Probability that at least one of k independent attempts solves the task. Estimated without bias with n ≥ k samples per task and c successes: `1 − C(n − c, k) / C(n, k)`, averaged across tasks.
+- **Where it shows up.** Evaluation of code generation and of agents where several attempts are possible (Ch. 5.7).
+- **Risks.** It only becomes performance if a selector exists that can pick the right attempt; without one, it is a ceiling. The naive estimator `1 − (1 − p̂)^k` is biased, and there is no unbiased estimator with fewer samples than k.
+
+### pass^k
+
+- **What it is.** Probability that all k independent attempts solve the task: per task, `C(c, k) / C(n, k)`; then averaged across tasks.
+- **Where it shows up.** Reliability of agents that run the same class of task repeatedly in production (Ch. 5.7).
+- **Risks.** It drops fast with k (in one public benchmark, about 61% at pass^1 became less than 25% at pass^8); comparing one system's pass@k with another's pass^k is comparing different metrics.
+
 ### Point-in-time correctness
 
 - **What it is.** In feature stores, ensuring that the features used in training reflect the state of the world at the time of the event, not at the time of the query.
@@ -684,6 +732,12 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 
 - **What it is.** Training that simulates quantization during the forward/backward pass for better quality than pure PTQ.
 - **Trade-off.** Higher engineering cost than PTQ.
+
+### Preference pairs (chosen/rejected)
+
+- **What it is.** Data in the format prompt + preferred answer (chosen) + rejected answer (rejected), produced by humans, an LLM judge or a verifier; it feeds DPO and variants or the training of a reward model.
+- **Where it shows up.** Preference optimization; paired evaluation.
+- **Risks.** Preferences that encode only length or style; mishandled ties; pairs without `label_source`. See Ch. 7.8.
 
 ### Prefill / Decode
 
@@ -735,6 +789,24 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **What it is.** The risk that remains after applying all controls.
 - **Important.** It must be explicitly accepted or transferred.
 
+### Reward hacking (specification gaming)
+
+- **What it is.** Behavior that maximizes the reward or passes the verifier without fulfilling the task's intent: editing tests, returning the expected output without computing it, replacing the evaluator.
+- **Where it shows up.** Agent evaluation (in a 2025 report, 30.4% of the runs of a research benchmark) and training with verifiable rewards.
+- **Risks.** A score that does not correspond to capability; penalizing the model instead of fixing the verifier can teach subtler or obfuscated cheating. Mitigations: verifier outside the agent's context, adversarial control, trajectory inspection (Ch. 5.7).
+
+### Reward model
+
+- **What it is.** A model trained on comparisons to assign a scalar reward to an answer; in classic RLHF, it replaces the human annotator inside the RL loop.
+- **Where it shows up.** RLHF; rejection sampling (picking the best of K answers); filtering of synthetic data.
+- **Risks.** It is exploitable: policies optimized against it find high-reward, low-quality answers (reward hacking). See Ch. 5.7 and 7.8.
+
+### RLHF / RLAIF / RLVR
+
+- **What it is.** Families of reward-based post-training: **RLHF** uses human preferences (reward model + RL, or DPO); **RLAIF** uses preferences generated by an LLM; **RLVR** uses a programmatic verifier (tests, gold answer, constraint) in place of the reward model.
+- **Where it shows up.** Public open-model recipes (SFT -> preferences -> RLVR); for teams that consume models, mostly as vocabulary and as an evaluation data format.
+- **Risks.** A biased LLM judge (RLAIF); an incomplete verifier becomes a target (RLVR); RL algorithms stay out of this book's scope. See Ch. 7.8.
+
 ### Runbook
 
 - **What it is.** An operational procedure for incidents and routines.
@@ -774,6 +846,12 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **What it is.** A cache based on semantic similarity (not on an exact hash).
 - **Risk.** A stale response.
 
+### SFT (Supervised Fine-Tuning)
+
+- **What it is.** Supervised training that maximizes the probability of the demonstrations' target tokens (the assistant's answers and tool calls), with a mask over instructions, user turns and tool results.
+- **Where it shows up.** Format, style and tool use; the first phase of post-training; distillation by SFT on a larger model's outputs.
+- **Risks.** Lower loss is not a better task; wrong mask, template and truncation; a poor mechanism for inserting mutable facts. See Ch. 7.6 and 7.8.
+
 ### Shadow deploy
 
 - **What it is.** A new version runs in parallel to the current one, without affecting users.
@@ -787,6 +865,12 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 
 - **What it is.** A quantization method that redistributes difficulty between weights and activations via rescaling, enabling W8A8.
 - **Reference.** Xiao et al., ICML 2023 (<https://arxiv.org/abs/2211.10438>).
+
+### Solvability
+
+- **What it is.** The property of an evaluation task that can be solved, in the declared environment and under the declared budget, by a known reference solution.
+- **Where it shows up.** A benchmark's positive control: the reference must pass 100% of the tasks before any agent is measured (Ch. 5.7).
+- **Risks.** Unsolvable tasks lower every system equally and hide the real difference; intentionally impossible tasks require a verifier that rewards the correct refusal, not the empty answer.
 
 ### Speculative decoding
 
@@ -811,6 +895,12 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 ---
 
 ## T
+
+### Task family
+
+- **What it is.** A group of tasks correlated by common origin — same repository, scenario, document or seed — whose results tend to vary together.
+- **Where it shows up.** Design of evaluation sets and uncertainty computation; train/eval splits by family to avoid leakage (Ch. 1.6, 5.7).
+- **Risks.** Treating each task as independent when it belongs to a family narrows the interval artificially; in published examples, clustered standard errors reached 3× the naive ones.
 
 ### Tenant isolation
 
@@ -873,6 +963,12 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 
 - **What it is.** Insertion of a malicious document into the RAG index.
 - **Mitigation.** Ingestion validation, provenance, isolation, reindexing.
+
+### Verifier
+
+- **What it is.** The component that decides, independently of the agent, whether a task was solved: tests, a target-state comparator or, where there is no verifiable state, a calibrated judge. It produces a numeric result.
+- **Where it shows up.** Agent benchmarks, release gates, reward in training with verifiable RL (Ch. 5.4, 5.7).
+- **Risks.** A verifier that accepts the initial state or an empty answer, that is readable or editable by the agent, or that covers only part of the requirement produces inflated scores. It must be tested with positive, no-op, shortcut and adversarial controls.
 
 ### vLLM
 

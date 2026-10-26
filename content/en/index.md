@@ -92,5 +92,6 @@ Details in [CONTRIBUTING.md](https://github.com/ruanpato/production-ai-engineeri
 - **Emerging topics** (A2A, MCP Authorization, FinOps for AI, part of the tool lifecycle) have their **maturity declared** in the chapter itself.
 - **Uneven depth.** Some parts are more mature than others; sections still in outline form will be expanded in future cycles. Short chapters follow the same editorial pattern as long ones only when it helps reference reading.
 - **The central thesis avoids literal repetition.** It appears in the Preface and Part 0, and later chapters use short references (e.g., "as discussed in Part 0") instead of restating it in full.
+- **Chapters under review.** Chs. 5.7 (agent evaluation) and 7.8 (post-training in production) have `status: review`: complete, awaiting external review.
 
 ---

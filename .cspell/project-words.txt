@@ -251,3 +251,26 @@ SPLADE
 TACL
 TMLR
 Wasserstein
+# --- termos dos Caps. 5.7 e 7.8 (PR 3, out/2026): nomes próprios, siglas, identificadores e jargão apontados pelo cspell ---
+Allal
+Cosmopedia
+cpus
+Denison
+Ethayarajh
+Gerstgrasser
+Grattafiori
+Incentivizing
+Kapoor
+Longpre
+Lozhkov
+Meng
+METR
+Nemotron
+Ouyang
+Qwen
+rephrasings
+Shumailov
+Strien
+Thorne
+tokenizados
+Tülu

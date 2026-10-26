@@ -1,7 +1,7 @@
 ---
 title: "References"
 lang: en
-order: 97
+order: 99
 status: stable
 tags: [referencia]
 ---
@@ -25,7 +25,7 @@ Bibliography organized by theme. Each entry includes, when applicable:
 ### 📑 Papers and books
 
 - **Mitchell et al. — *Model Cards for Model Reporting* (FAT* 2019).** Original paper — <https://arxiv.org/abs/1810.03993>. Basis for Model Cards. Used in Ch. 1.7 and 1.11.
-- **Gebru et al. — *Datasheets for Datasets* (CACM 2021).** Paper — <https://arxiv.org/abs/1803.09010>. Basis for Dataset Cards. Ch. 1.2, 1.7.
+- **Gebru et al. — *Datasheets for Datasets* (CACM 2021).** Paper — <https://arxiv.org/abs/1803.09010>. Basis for Dataset Cards. Ch. 1.2, 1.7, 7.8.
 - **Hardt, Price & Srebro — *Equality of Opportunity in Supervised Learning* (NIPS 2016).** Paper — <https://arxiv.org/abs/1610.02413>. Basis for equalized odds and equality of opportunity. Ch. 1.11.
 - **Guo et al. — *On Calibration of Modern Neural Networks* (ICML 2017).** Paper — <https://arxiv.org/abs/1706.04599>. Calibration and ECE. Ch. 1.3.
 - **Ribeiro, Singh & Guestrin — *"Why Should I Trust You?" Explaining the Predictions of Any Classifier* (KDD 2016).** Paper — <https://arxiv.org/abs/1602.04938>. LIME. Ch. 1.11.
@@ -74,8 +74,8 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **Lin et al. — *AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration* (MLSys 2024).** Paper — <https://arxiv.org/abs/2306.00978>. Ch. 2.2.
 - **Xiao et al. — *SmoothQuant* (ICML 2023).** Paper — <https://arxiv.org/abs/2211.10438>. Ch. 2.2.
 - **OpenAI — *gpt-oss-120b & gpt-oss-20b Model Card* (2025).** Paper — <https://arxiv.org/abs/2508.10925>. MoE weights post-trained in MXFP4. Ch. 2.2.
-- **Biderman et al. — *LoRA Learns Less and Forgets Less* (TMLR 2024).** Paper — <https://arxiv.org/abs/2405.09673>. Limits of LoRA in continued pretraining and instruction tuning; forgets less. Ch. 7.6.
-- **Gekhman et al. — *Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?* (EMNLP 2024).** Paper — <https://arxiv.org/abs/2405.05904>. New facts learned slowly; hallucination grows. Ch. 7.6.
+- **Biderman et al. — *LoRA Learns Less and Forgets Less* (TMLR 2024).** Paper — <https://arxiv.org/abs/2405.09673>. Limits of LoRA in continued pretraining and instruction tuning; forgets less. Ch. 7.6, 7.8.
+- **Gekhman et al. — *Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?* (EMNLP 2024).** Paper — <https://arxiv.org/abs/2405.05904>. New facts learned slowly; hallucination grows. Ch. 7.6, 7.8.
 - **Ovadia et al. — *Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs* (2024).** Paper — <https://arxiv.org/abs/2312.05934>. RAG beats unsupervised fine-tuning for knowledge. Ch. 2.10, 7.6.
 - **Chen et al. — *MEDITRON-70B: Scaling Medical Pretraining for Large Language Models* (2023).** Paper — <https://arxiv.org/abs/2311.16079>. Domain continued pretraining. Ch. 7.6.
 - **Colombo et al. — *SaulLM-7B: A pioneering Large Language Model for Law* (2024).** Paper — <https://arxiv.org/abs/2403.03883>. Domain continued pretraining. Ch. 7.6.
@@ -105,7 +105,7 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **llama.cpp and GGUF — <https://github.com/ggml-org/llama.cpp>.** Project (local inference + quantization format). Ch. 2.2.
 - **MLC LLM — <https://llm.mlc.ai/>.** Docs (cross-hardware inference).
 - **Hugging Face — *Transformers: Quantization overview* — <https://huggingface.co/docs/transformers/quantization/overview>.** Current backends (GPT-QModel, AutoAWQ, NVFP4). Ch. 2.2.
-- **Hugging Face — *TRL: PEFT integration* — <https://huggingface.co/docs/trl/peft_integration>.** LoRA adapters in SFT, DPO and GRPO; DPO reference without a second model. Ch. 7.6.
+- **Hugging Face — *TRL: PEFT integration* — <https://huggingface.co/docs/trl/peft_integration>.** LoRA adapters in SFT, DPO and GRPO; DPO reference without a second model. Ch. 7.6, 7.8.
 
 ### 📜 Official technical blogs
 
@@ -116,8 +116,8 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **Anthropic — *Code execution with MCP* — <https://www.anthropic.com/engineering/code-execution-with-mcp>.** Ch. 4.10.
 - **Anthropic — *Measuring AI agent autonomy in practice* — <https://www.anthropic.com/news/measuring-agent-autonomy>.** Ch. 3.2.
 - **OpenAI Cookbook — *Prompt Caching 201* — <https://developers.openai.com/cookbook/examples/prompt_caching_201>.** Ch. 2.3.
-- **Thinking Machines — *LoRA Without Regret* — <https://thinkingmachines.ai/blog/lora/>.** LoRA matches full FT on small/medium datasets and in RL; all layers; 10× LR. Ch. 7.6.
-- **Thinking Machines — *On-Policy Distillation* — <https://thinkingmachines.ai/blog/on-policy-distillation/>.** Mid-training on internal documents and behavior restoration. Ch. 7.6.
+- **Thinking Machines — *LoRA Without Regret* — <https://thinkingmachines.ai/blog/lora/>.** LoRA matches full FT on small/medium datasets and in RL; all layers; 10× LR. Ch. 7.6, 7.8.
+- **Thinking Machines — *On-Policy Distillation* — <https://thinkingmachines.ai/blog/on-policy-distillation/>.** Mid-training on internal documents and behavior restoration. Ch. 7.6, 7.8.
 - **Modular (LLM Inference Handbook, formerly BentoML) — *Prefill–decode disaggregation* — <https://handbook.modular.com/inference-optimization/prefill-decode-disaggregation/>.** Ch. 2.1, 6.3.
 
 ---
@@ -393,8 +393,8 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **Ragas — Context Precision — <https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_precision/>.**
 - **Zheng et al. — *Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena* (2023).** Paper — <https://arxiv.org/abs/2306.05685>. Ch. 2.11, 5.4.
 - **Liu et al. — *G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment* (2023).** Paper — <https://arxiv.org/abs/2303.16634>. Ch. 2.11.
-- **Miller — *Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations* (2024).** Paper — <https://arxiv.org/abs/2411.00640>. Clustered standard errors; paired difference; ~1,000 items for 3 p.p. Ch. 1.3.
-- **Bowyer, Aitchison & Ivanova — *Position: Don't Use the CLT in LLM Evals With Fewer Than a Few Hundred Datapoints* (ICML 2025).** Paper — <https://arxiv.org/abs/2503.01747>. Wilson/paired Bayesian intervals on small samples. Ch. 1.3.
+- **Miller — *Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations* (2024).** Paper — <https://arxiv.org/abs/2411.00640>. Clustered standard errors; paired difference; ~1,000 items for 3 p.p. Ch. 1.3, 5.7.
+- **Bowyer, Aitchison & Ivanova — *Position: Don't Use the CLT in LLM Evals With Fewer Than a Few Hundred Datapoints* (ICML 2025).** Paper — <https://arxiv.org/abs/2503.01747>. Wilson/paired Bayesian intervals on small samples. Ch. 1.3, 5.7.
 - **Wasserstein & Lazar — *The ASA's Statement on p-Values: Context, Process, and Purpose* (The American Statistician, 2016).** Article — <https://pmc.ncbi.nlm.nih.gov/articles/PMC5088632>. Six principles on p-values. Ch. 1.3.
 
 ---
@@ -437,6 +437,69 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **Chip Huyen — *AI Engineering: Building Applications with Foundation Models* (O'Reilly, 2024).** Book.
 - **Lakshmanan, Robinson & Munn — *Machine Learning Design Patterns* (O'Reilly).** Book.
 - **Engineering blogs from OpenAI, Anthropic, Google, Meta, Netflix, Airbnb and Uber.** Varied material on MLOps, LLMOps and Agentic AI.
+
+---
+
+## 🧪 16. Post-training, data and agent evaluation
+
+> Sources for Ch. 7.8 (post-training, data and licenses) and Ch. 5.7 (agent evaluation). Lab recipes are the authors' own technical reports; maturity is declared in the chapters.
+
+### 📑 Papers and technical reports
+
+- **Lambert et al. — *Tülu 3: Pushing Frontiers in Open Language Model Post-Training* (2024).** Paper — <https://arxiv.org/abs/2411.15124>. SFT -> DPO -> RLVR recipe; 8-gram decontamination; "unseen" split. Ch. 7.8.
+- **Grattafiori et al. — *The Llama 3 Herd of Models* (2024).** Paper — <https://arxiv.org/abs/2407.21783>. Six SFT -> DPO rounds; rejection sampling; DPO preferred over PPO on cost. Ch. 7.8.
+- **Yang et al. — *Qwen3 Technical Report* (2025).** Paper — <https://arxiv.org/abs/2505.09388>. Cold start -> reasoning RL -> mode fusion -> general RL. Ch. 7.8.
+- **DeepSeek-AI — *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning* (Nature 2025).** Paper — <https://arxiv.org/abs/2501.12948>. Pure RL with rule-based rewards; neural reward model "susceptible to reward hacking". Ch. 7.8.
+- **OLMo Team — *2 OLMo 2 Furious* (2025).** Paper — <https://arxiv.org/abs/2501.00656>. Operational definition of mid-training. Ch. 7.8.
+- **Ouyang et al. — *Training language models to follow instructions with human feedback* (NeurIPS 2022).** Paper — <https://arxiv.org/abs/2203.02155>. Classic RLHF (InstructGPT): SFT, reward model, RL. Ch. 7.8.
+- **Rafailov et al. — *Direct Preference Optimization: Your Language Model is Secretly a Reward Model* (NeurIPS 2023).** Paper — <https://arxiv.org/abs/2305.18290>. The DPO loss; reference and β. Ch. 7.6, 7.8.
+- **Bai et al. — *Constitutional AI: Harmlessness from AI Feedback* (2022).** Paper — <https://arxiv.org/abs/2212.08073>. AI preferences guided by principles. Ch. 7.8.
+- **Lee et al. — *RLAIF vs. RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback* (2023).** Paper — <https://arxiv.org/abs/2309.00267>. Definition of RLAIF. Ch. 7.8.
+- **Ethayarajh et al. — *KTO: Model Alignment as Prospect Theoretic Optimization* (2024).** Paper — <https://arxiv.org/abs/2402.01306>. Variant with unpaired binary feedback; "no single variant is universally best". Ch. 7.8.
+- **Hong, Lee & Thorne — *ORPO: Monolithic Preference Optimization without Reference Model* (2024).** Paper — <https://arxiv.org/abs/2403.07691>. Reference-free variant. Ch. 7.8.
+- **Meng, Xia & Chen — *SimPO: Simple Preference Optimization with a Reference-Free Reward* (2024).** Paper — <https://arxiv.org/abs/2405.14734>. Reference-free variant. Ch. 7.8.
+- **Wang et al. — *Self-Instruct: Aligning Language Models with Self-Generated Instructions* (2023).** Paper — <https://arxiv.org/abs/2212.10560>. Synthetic instruction generation from seeds. Ch. 7.8.
+- **Xu et al. — *WizardLM: Empowering Large Language Models to Follow Complex Instructions* (Evol-Instruct) (2023).** Paper — <https://arxiv.org/abs/2304.12244>. Progressively harder instructions. Ch. 7.8.
+- **Xu et al. — *Magpie: Alignment Data Synthesis from Scratch by Prompting Aligned LLMs with Nothing* (2024).** Paper — <https://arxiv.org/abs/2406.08464>. Synthesis from the pre-query template. Ch. 7.8.
+- **NVIDIA — *Nemotron-4 340B Technical Report* (2024).** Paper — <https://arxiv.org/abs/2406.11704>. More than 98% synthetic alignment data. Ch. 7.8.
+- **Shumailov et al. — *AI models collapse when trained on recursively generated data* (Nature 2024).** Paper — <https://arxiv.org/abs/2305.17493>. Model collapse under recursive training. Ch. 7.8.
+- **Gerstgrasser et al. — *Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data* (2024).** Paper — <https://arxiv.org/abs/2404.01413>. Accumulation avoids collapse; replacement causes it. Ch. 7.8.
+- **OpenAI — *GPT-4 Technical Report* (2023).** Paper — <https://arxiv.org/abs/2303.08774>. Decontamination by 50-character substrings. Ch. 7.8.
+- **Longpre et al. — *The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI* (2023).** Paper — <https://arxiv.org/abs/2310.16787>. Licenses omitted in 70%+ of datasets on hubs. Ch. 7.8.
+
+### 📘 Official documentation
+
+- **Hugging Face — *TRL: SFT Trainer* (v1.16.0) — <https://huggingface.co/docs/trl/sft_trainer>.** Loss masks (`assistant_only_loss`, `completion_only_loss`); datasets with `tools`. Ch. 7.8.
+- **Hugging Face — *TRL: DPO Trainer* (v1.16.0) — <https://huggingface.co/docs/trl/dpo_trainer>.** `prompt/chosen/rejected` format; implicit reference; `precompute_ref_log_probs`. Ch. 7.8.
+- **Hugging Face — *Hub: Dataset Cards* — <https://huggingface.co/docs/hub/datasets-cards>.** Dataset card template (YAML `license`, `language`, tags). Ch. 7.8.
+
+### 📜 Technical blogs
+
+- **Ben Allal, Lozhkov & van Strien (Hugging Face) — *Cosmopedia: how to create large-scale synthetic data for pre-training* — <https://huggingface.co/blog/cosmopedia>.** Prompt diversity as the bottleneck of synthetic generation. Ch. 7.8.
+
+### ⚖️ Terms of use (legal documents)
+
+- **Anthropic — *Commercial Terms of Service* (effective 2025-06-17) — <https://www.anthropic.com/legal/commercial-terms>.** Prohibits using the services to train competing models. Ch. 7.8.
+- **Anthropic — *Consumer Terms of Service* (effective 2025-10-08) — <https://www.anthropic.com/legal/consumer-terms>.** Equivalent clause for the consumer product. Ch. 7.8.
+- **Google — *Gemini API Additional Terms of Service* (effective 2026-03-23) — <https://ai.google.dev/gemini-api/terms>.** Prohibits using the services to develop competing models. Ch. 7.8.
+
+### 🤖 Agent evaluation
+
+- **Jimenez et al. — *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* (ICLR 2024).** Paper — <https://arxiv.org/abs/2310.06770>. Benchmark of real issues in Python repositories; basis for SWE-bench Verified. Ch. 5.7.
+- **Princeton NLP / OpenAI — *SWE-bench Verified* (dataset card, 2024).** Dataset — <https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified>. Subset of 500 instances validated by human review. Ch. 5.7.
+- **Merrill et al. — *Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces* (ICLR 2026).** Paper — <https://arxiv.org/abs/2601.11868>. Task verification process (oracle, no-op, auditors, adversarial agent, ≥5 runs); tests copied in after the agent. Ch. 5.7.
+- **Harbor — *Tasks: overview* — <https://docs.harborframework.com/tasks/overview>.** Docs (task format: `instruction.md`, `task.toml`, `environment/`, `solution/`, `tests/`). Ch. 5.7.
+- **Terminal-Bench — *Terminal-Bench 4.0* (2026) — <https://www.tbench.ai/news/terminal-bench-4-0>.** Release note (continuous benchmark with semantic versioning; tasks removed and fixed between versions). Ch. 5.7.
+- **Yao et al. — *τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains* (2024).** Paper — <https://arxiv.org/abs/2406.12045>. Verification by database state; pass^k metric. Ch. 5.7.
+- **Zhu et al. — *Establishing Best Practices for Building Rigorous Agentic Benchmarks* (2025).** Paper — <https://arxiv.org/abs/2507.02825>. Agentic Benchmark Checklist; task- and outcome-validity defects in mature benchmarks. Ch. 5.7.
+- **Kapoor et al. — *Holistic Agent Leaderboard (HAL)* (ICLR 2026).** Paper — <https://arxiv.org/abs/2510.11977>. Score as a function of model, scaffold and budget; cost reported next to accuracy. Ch. 5.7.
+- **METR — *Recent Frontier Models Are Reward Hacking* (2025).** Technical report — <https://metr.org/blog/2025-06-05-recent-reward-hacking>. Reward hacking in evaluation; recommendation to fix the verifier. Ch. 5.7.
+- **Denison et al. — *Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models* (2024).** Paper — <https://arxiv.org/abs/2406.10162>. Generalization from specification gaming to reward tampering. Ch. 5.7.
+- **Baker et al. — *Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation* (2025).** Paper — <https://arxiv.org/abs/2503.11926>. Reasoning monitor; obfuscated cheating when optimizing against the monitor. Ch. 5.7.
+
+### 📐 Statistics for evaluation
+
+- **Chen et al. — *Evaluating Large Language Models Trained on Code* (2021).** Paper — <https://arxiv.org/abs/2107.03374>. Unbiased pass@k estimator. Ch. 5.7.
 
 ---
 

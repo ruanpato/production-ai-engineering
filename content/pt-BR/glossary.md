@@ -1,7 +1,7 @@
 ---
 title: "Glossário"
 lang: pt-BR
-order: 96
+order: 98
 status: stable
 tags: [referencia]
 ---
@@ -131,6 +131,12 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **O que é.** O quanto uma ação errada de um agente pode danificar o sistema/empresa.
 - **Onde aparece.** Decisões sobre permissões, sandboxing e HITL.
 
+### Bootstrap pareado
+
+- **O que é.** Método para estimar a incerteza da diferença entre dois sistemas avaliados nos mesmos itens: sorteiam-se os itens (ou os clusters) com reposição, recalcula-se a diferença média a cada sorteio e o intervalo vem da distribuição dessas diferenças.
+- **Onde aparece.** Comparação pareada de prompts, modelos ou scaffolds sobre um mesmo conjunto de avaliação (Cap. 1.3, 5.7).
+- **Riscos.** Com poucas dezenas de itens, o bootstrap também subestima a incerteza; abaixo de algumas centenas, prefira um intervalo bayesiano pareado para a diferença e Wilson ou Beta para a taxa de cada sistema. Reamostrar tentativas em vez de itens infla o n.
+
 ### BPE (Byte Pair Encoding)
 
 - **O que é.** Algoritmo de tokenização sub-palavra.
@@ -188,6 +194,12 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **O que é.** Mudança na relação entre features e label ao longo do tempo.
 - **Detecção.** Métricas de performance comparadas a baseline.
 
+### Contaminação de benchmark
+
+- **O que é.** Presença da tarefa, da resposta ou da solução de um benchmark nos dados de treino do modelo ou em fontes acessíveis ao agente durante a avaliação.
+- **Onde aparece.** Benchmarks públicos antigos; agentes com acesso à web que procuram a solução online; conjuntos internos publicados junto com o verificador.
+- **Riscos.** Score que mede memória ou busca, não capacidade. Mitigações: descontaminação dos dados de treino, string canário, remoção de tarefas com solução pública, egress bloqueado durante a avaliação (Cap. 1.6, 5.7).
+
 ### Context engineering
 
 - **O que é.** Disciplina de selecionar, ordenar, compactar e estruturar o contexto enviado ao modelo.
@@ -209,6 +221,12 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 
 - **O que é.** Mecanismo cujo comportamento é previsível e auditável (código, policy-as-code, RBAC).
 - **Relação.** Distinguir de **mitigação** (que reduz probabilidade, sem garantir).
+
+### Continued pretraining e mid-training
+
+- **O que é.** Continuar o pré-treino (previsão do próximo token) sobre um corpus de domínio (continued pretraining) ou sobre um mix curado de alta qualidade aplicado como estágio curto antes do pós-treinamento (mid-training). A nomenclatura ainda varia entre relatórios.
+- **Onde aparece.** Adaptação de domínio com conhecimento estável (vocabulário, convenções); receitas recentes de modelos abertos.
+- **Riscos.** Exige bilhões de tokens; derruba instruction following sem uma etapa de restauração; LoRA típico fica atrás de full fine-tuning nesse regime. Ver Cap. 7.6 e 7.8.
 
 ### Continuous batching
 
@@ -258,6 +276,12 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **O que é.** Processo controlado de retirar um prompt, tool, modelo, schema, MCP server ou agente.
 - **Riscos.** Marcar metadata como `deprecated` **não impede** que o modelo tente usar. Bloqueio real precisa estar em camadas determinísticas.
 
+### Descontaminação
+
+- **O que é.** Remover do treino os exemplos que sobrepõem a suíte de avaliação, por n-grams (8-gram, com limiar por dataset) ou por substrings aleatórias, antes de treinar.
+- **Onde aparece.** Curadoria de dados de pós-treinamento; preparação de holdout e de splits por família.
+- **Riscos.** Passar no n-gram não é estar limpo: reformulações escapam, sobretudo em código e múltipla escolha. Ver Cap. 1.6 e 7.8.
+
 ### Distillation
 
 - **O que é.** Treinar modelo menor (student) a partir de modelo maior (teacher).
@@ -279,6 +303,12 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **O que é.** Tamanho do vetor produzido por um modelo de embedding (`d`). Valores comuns: 256–4096.
 - **Trade-off.** `d` maior tende a recall maior, mas custa mais storage, RAM e latência de ANN.
 - **Relação.** Em modelos Matryoshka, dimensão pode ser reduzida via truncamento sem reembedding.
+
+### DPO (Direct Preference Optimization)
+
+- **O que é.** Objetivo de treino que aprende de pares chosen/rejected diretamente, com uma loss de classificação relativa a uma política de referência e um coeficiente β que limita o desvio; dispensa reward model separado e loop online.
+- **Onde aparece.** Pós-treinamento leve de modelos abertos (combinável com LoRA); receitas públicas que preferem DPO a PPO para preferências por custo.
+- **Riscos.** Aprende o proxy dos pares (comprimento, confiança) se os pares forem enviesados; regressão em capacidades não cobertas. Ver Cap. 7.6 e 7.8.
 
 ---
 
@@ -339,6 +369,12 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 
 - **O que é.** Média harmônica de precisão e recall.
 - **Onde aparece.** Classificação com classes desbalanceadas.
+
+### Família de tarefa
+
+- **O que é.** Grupo de tarefas correlacionadas por origem comum - mesmo repositório, cenário, documento ou seed -, cujos resultados tendem a variar juntos.
+- **Onde aparece.** Desenho de conjuntos de avaliação e cálculo de incerteza; splits de treino e avaliação por família para evitar vazamento (Cap. 1.6, 5.7).
+- **Riscos.** Tratar cada tarefa como independente quando pertence a uma família estreita o intervalo artificialmente; em exemplos publicados, erros padrão agrupados chegaram a 3× os ingênuos.
 
 ### Feature store
 
@@ -460,6 +496,12 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 
 - **O que é.** Feature contém o próprio label (ou função direta dele).
 - **Risco.** Performance irreal em offline; desastre em produção.
+
+### label_source
+
+- **O que é.** Campo registrado por exemplo (e agregado no dataset card) que identifica a origem de um rótulo ou preferência: anotador humano, juiz LLM (com modelo e versão), verificador ou heurística.
+- **Onde aparece.** Datasets de preferência e de demonstrações; dataset cards; relatórios de pós-treinamento.
+- **Riscos.** Sem ele, não se separa viés do juiz de ganho real nem se reproduz a curadoria. Ver Cap. 7.8.
 
 ### LIME (Local Interpretable Model-agnostic Explanations)
 
@@ -651,6 +693,24 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **Onde aparece.** vLLM (origem); inspirou abordagens similares em outros engines.
 - **Referência.** Kwon et al., SOSP 2023 (<https://arxiv.org/abs/2309.06180>).
 
+### Pares de preferência (chosen/rejected)
+
+- **O que é.** Dado no formato prompt + resposta preferida (chosen) + resposta rejeitada (rejected), produzido por humanos, juiz LLM ou verificador; alimenta DPO e variantes ou o treino de um reward model.
+- **Onde aparece.** Otimização de preferências; avaliação pareada.
+- **Riscos.** Preferências que codificam só comprimento ou estilo; empates mal tratados; pares sem `label_source`. Ver Cap. 7.8.
+
+### pass@k
+
+- **O que é.** Probabilidade de que ao menos uma entre k tentativas independentes resolva a tarefa. Estimada sem viés com n ≥ k amostras por tarefa e c sucessos: `1 − C(n − c, k) / C(n, k)`, média entre tarefas.
+- **Onde aparece.** Avaliação de geração de código e de agentes em que várias tentativas são possíveis (Cap. 5.7).
+- **Riscos.** Só vira desempenho se existe um seletor capaz de escolher a tentativa certa; sem ele, é teto. O estimador ingênuo `1 − (1 − p̂)^k` é enviesado, e não há estimador não enviesado com menos amostras que k.
+
+### pass^k
+
+- **O que é.** Probabilidade de que todas as k tentativas independentes resolvam a tarefa: por tarefa, `C(c, k) / C(n, k)`; depois, média entre tarefas.
+- **Onde aparece.** Confiabilidade de agentes que executam a mesma classe de tarefa repetidas vezes em produção (Cap. 5.7).
+- **Riscos.** Cai rápido com k (em um benchmark público, cerca de 61% em pass^1 virou menos de 25% em pass^8); comparar o pass@k de um sistema com o pass^k de outro é comparar métricas diferentes.
+
 ### Point-in-time correctness
 
 - **O que é.** Em feature stores, garantir que as features usadas em treino refletem o estado do mundo no momento do evento, não no momento da query.
@@ -730,10 +790,28 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 
 - **O que é.** Reordenação dos resultados recuperados com modelo ou heurística.
 
+### Reward hacking (specification gaming)
+
+- **O que é.** Comportamento que maximiza a recompensa ou passa no verificador sem realizar a intenção da tarefa: editar testes, devolver a saída esperada sem computá-la, substituir o avaliador.
+- **Onde aparece.** Avaliação de agentes (em um relatório de 2025, 30,4% das execuções de um benchmark de pesquisa) e treinamento com recompensa verificável.
+- **Riscos.** Score que não corresponde a capacidade; penalizar o modelo em vez de corrigir o verificador pode ensinar trapaça mais sutil ou ofuscada. Mitigações: verificador fora do contexto do agente, controle adversarial, inspeção de trajetórias (Cap. 5.7).
+
+### Reward model
+
+- **O que é.** Modelo treinado em comparações para atribuir uma recompensa escalar a uma resposta; no RLHF clássico, substitui o anotador humano dentro do loop de RL.
+- **Onde aparece.** RLHF; rejection sampling (escolher a melhor de K respostas); filtragem de dados sintéticos.
+- **Riscos.** É explorável: políticas otimizadas contra ele encontram respostas de recompensa alta e qualidade baixa (reward hacking). Ver Cap. 5.7 e 7.8.
+
 ### Risco residual
 
 - **O que é.** Risco que permanece após aplicar todos os controles.
 - **Importante.** Deve ser explicitamente aceito ou transferido.
+
+### RLHF / RLAIF / RLVR
+
+- **O que é.** Famílias de pós-treinamento por recompensa: **RLHF** usa preferências humanas (reward model + RL, ou DPO); **RLAIF** usa preferências geradas por um LLM; **RLVR** usa um verificador programático (testes, gabarito, restrição) no lugar do reward model.
+- **Onde aparece.** Receitas públicas de modelos abertos (SFT -> preferências -> RLVR); para times que consomem modelos, sobretudo como vocabulário e como formato de dado de avaliação.
+- **Riscos.** Juiz LLM enviesado (RLAIF); verificador incompleto vira alvo (RLVR); os algoritmos de RL ficam fora do escopo deste livro. Ver Cap. 7.8.
 
 ### Runbook
 
@@ -774,6 +852,12 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **O que é.** Cache baseado em similaridade semântica (não em hash exato).
 - **Risco.** Resposta stale.
 
+### SFT (Supervised Fine-Tuning)
+
+- **O que é.** Treino supervisionado que maximiza a probabilidade dos tokens-alvo de demonstrações (respostas e tool calls do assistente), com máscara sobre instruções, turnos do usuário e resultados de ferramentas.
+- **Onde aparece.** Formato, estilo e uso de ferramentas; primeira fase do pós-treinamento; destilação por SFT em saídas de um modelo maior.
+- **Riscos.** Loss menor não é tarefa melhor; máscara, template e truncamento errados; mau mecanismo para inserir fatos mutáveis. Ver Cap. 7.6 e 7.8.
+
 ### Shadow deploy
 
 - **O que é.** Nova versão roda paralelamente à atual, sem afetar usuários.
@@ -787,6 +871,12 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 
 - **O que é.** Método de quantização que redistribui dificuldade entre pesos e ativações via reescala, permitindo W8A8.
 - **Referência.** Xiao et al., ICML 2023 (<https://arxiv.org/abs/2211.10438>).
+
+### Solvability (solubilidade)
+
+- **O que é.** Propriedade de uma tarefa de avaliação que pode ser resolvida, no ambiente e sob o budget declarados, por uma solução de referência conhecida.
+- **Onde aparece.** Controle positivo de um benchmark: a referência deve passar em 100% das tarefas antes de qualquer agente ser medido (Cap. 5.7).
+- **Riscos.** Tarefas insolúveis rebaixam todos os sistemas igualmente e escondem a diferença real; tarefas intencionalmente impossíveis exigem verificador que recompense a recusa correta, não a resposta vazia.
 
 ### Speculative decoding
 
@@ -873,6 +963,12 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 
 - **O que é.** Inserção de documento malicioso no índice RAG.
 - **Mitigação.** Validação de ingestão, provenance, isolamento, reindexação.
+
+### Verificador (verifier)
+
+- **O que é.** Componente que decide, de forma independente do agente, se uma tarefa foi resolvida: testes, comparador de estado-alvo ou, onde não há estado verificável, juiz calibrado. Produz um resultado numérico.
+- **Onde aparece.** Benchmarks de agentes, gates de release, recompensa em treinamento com RL verificável (Cap. 5.4, 5.7).
+- **Riscos.** Verificador que aceita o estado inicial ou a resposta vazia, que é legível ou editável pelo agente ou que cobre só parte do requisito produz scores inflados. Precisa ser testado com controles positivo, no-op, atalho e adversarial.
 
 ### vLLM
 
