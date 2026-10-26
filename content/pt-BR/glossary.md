@@ -92,6 +92,14 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **Onde aparece.** Discovery em sistemas multi-agente.
 - **Riscos.** Capacidades amplas demais; falta de versionamento explícito.
 
+### Agent Skills / AGENTS.md
+
+- **O que é.** Duas convenções de arquivo, não protocolos, para dar instruções a agentes. **`AGENTS.md`** é um Markdown livre na raiz do repositório (ou aninhado em monorepos; o arquivo mais próximo prevalece) com orientações para agentes de codificação, hoje governado pela Agentic AI Foundation. **Agent Skills** é um formato aberto em que uma pasta com `SKILL.md` (front matter com `name` e `description`, mais `scripts/`, `references/` e `assets/`) empacota instruções portáteis carregadas sob demanda; o campo `allowed-tools` é experimental.
+- **Onde aparece.** Repositórios usados por agentes de codificação; distribuição de procedimentos reutilizáveis entre agentes e ferramentas.
+- **Riscos.** Entram no contexto do modelo como texto: são superfície de prompt injection indireta e de supply chain, como as descrições de tools. Exigem revisão, versionamento e proveniência.
+- **Relação.** Complementam MCP (que padroniza tools/resources) sem substituí-lo; ver Cap. 3.5, 4.3, 4.9.
+- **Maturidade.** `AGENTS.md` é convenção amplamente adotada; Agent Skills é formato aberto recente (fim de 2025), sem governança por fundação confirmada.
+
 ### AWQ (Activation-aware Weight Quantization)
 
 - **O que é.** Método de quantização pós-treino que preserva canais de peso "salientes" (alta magnitude de ativação) e quantiza o resto.
@@ -189,6 +197,13 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 
 - **O que é.** Máximo de tokens que o modelo aceita em uma chamada.
 - **Trade-off.** Janelas grandes aumentam custo e podem degradar qualidade por ruído.
+
+### Contextual retrieval
+
+- **O que é.** Técnica de **indexação** em que um LLM escreve um contexto curto (50–100 tokens) para cada chunk, derivado do documento inteiro, antes de gerar o embedding e indexar em BM25.
+- **Onde aparece.** Pipelines de RAG em que chunks perdem referentes ("a empresa", "o contrato") ao serem cortados do documento.
+- **Riscos.** Custo único de uma geração por chunk a cada reindexação; ganhos medidos em benchmark do próprio autor (falhas de recuperação no top-20 −49% com BM25 contextual e −67% com reranking); validar no seu golden set.
+- **Relação.** Ortogonal às técnicas do lado da consulta (HyDE, reescrita) e ao late chunking; combina com hybrid search e reranking. Ver Cap. 2.7.
 
 ### Controle determinístico
 
@@ -390,6 +405,14 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **O que é.** Combinação de busca lexical (BM25) e busca vetorial.
 - **Quando usar.** Documentos técnicos com siglas, códigos e linguagem natural.
 
+### HyDE (Hypothetical Document Embeddings)
+
+- **O que é.** Técnica do lado da consulta em que um LLM escreve um **documento hipotético** que responderia à pergunta; o embedding desse documento (média de N amostras mais o embedding da consulta) é usado na busca densa, deslocando o problema de "consulta → documento" para "documento → documento".
+- **Onde aparece.** Retrieval zero-shot sem rótulos de relevância; consultas curtas contra documentos longos; domínio fora do treino do retriever.
+- **Riscos.** Uma geração síncrona por consulta (latência de recuperação 2,5–3× em medições independentes); o LLM pode alucinar para o lado errado em consultas ambíguas, entidades raras e fatos recentes; com encoder fine-tuned ou reranker forte o ganho encolhe ou vira perda.
+- **Relação.** Alternativa a reescrita e multi-query; compete com hybrid search + reranking e com contextual retrieval. Ver Cap. 2.7.
+- **Maturidade.** Paper de 2023 com evidência mista em 2024–2025; técnica de nicho, não padrão.
+
 ### HNSW (Hierarchical Navigable Small World)
 
 - **O que é.** Algoritmo de busca aproximada (ANN) por similaridade vetorial baseado em grafos hierárquicos.
@@ -444,10 +467,24 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **Limites.** Aproximação, não "verdade" do modelo.
 - **Referência.** Ribeiro, Singh & Guestrin (KDD 2016).
 
+### Late interaction
+
+- **O que é.** Família de modelos de retrieval (ColBERT, ColBERTv2, ColPali) que mantém **um vetor por token** do documento e pontua a consulta contra todos eles (MaxSim), em vez de comprimir cada documento em um único vetor.
+- **Onde aparece.** Busca de alta precisão; documentos visualmente ricos (tabelas, figuras, layouts), em que o ColPali gera embeddings de imagens de páginas sem OCR.
+- **Riscos.** Índice maior (a compressão residual do ColBERTv2 reduz 6–10×, ainda assim acima do single-vector) e scoring mais caro; não está demonstrado que substitua OCR em todos os casos.
+- **Relação.** Alternativa ao embedding denso tradicional; combina com reranking. Ver Cap. 2.7.
+
 ### Latência (p50, p95, p99)
 
 - **O que é.** Métricas de tempo de resposta.
 - **Importante.** SLOs de produção devem usar percentis, não média.
+
+### Learned sparse retrieval
+
+- **O que é.** Retrieval em que um modelo neural aprende **vetores esparsos sobre o vocabulário** (pesos por termo, com expansão de termos), indexáveis em um motor de índice invertido comum. Exemplo canônico: SPLADE (v2, 2021).
+- **Onde aparece.** Como componente lexical "aprendido" dentro de hybrid search, no lugar ou ao lado de BM25.
+- **Riscos.** Depende de treino supervisionado ou destilação; ganhos reportados em benchmarks acadêmicos precisam ser confirmados no corpus próprio.
+- **Relação.** Entre BM25 (esparso, não aprendido) e embeddings densos; ver Cap. 2.7.
 
 ### LLM-as-a-judge
 
@@ -653,6 +690,13 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **O que são.** As duas fases da inferência de LLM.
   - **Prefill** - processa prompt em paralelo; latência dominante do TTFT. Limitada por compute.
   - **Decode** - gera tokens um a um; latência dominante do TPOT. Limitada por memory bandwidth.
+
+### Protected Resource Metadata (RFC 9728)
+
+- **O que é.** Documento de metadados publicado por um *resource server* OAuth 2.0 em URL conhecida, que informa ao cliente, entre outros campos, quais *authorization servers* emitem tokens válidos para aquele recurso e quais escopos ele aceita.
+- **Onde aparece.** Autorização de servidores MCP remotos: desde a revisão 2025-06-18 o servidor MCP é classificado como resource server e **deve** publicar RFC 9728, e o cliente **deve** enviar *resource indicators* (RFC 8707) para que o token seja emitido para aquele servidor específico.
+- **Riscos.** Sem validação de audience, um token emitido para um serviço pode ser reaproveitado em outro (*token passthrough*, proibido pela spec); descoberta de metadados é vetor de SSRF se o cliente seguir URLs sem restrição.
+- **Relação.** Base do fluxo cliente → resource server → authorization server descrito no Cap. 4.8; ver também Cap. 3.5.
 
 ### Provenance
 
