@@ -1,7 +1,7 @@
 ---
 title: "Engenharia de IA em Produção"
 lang: pt-BR
-order: 1
+order: 0
 status: stable
 tags: [inicio]
 ---
@@ -14,7 +14,7 @@ tags: [inicio]
 
 Existe muito material sobre Machine Learning, LLMs e Agentic AI. A maior parte foca em demos, frameworks da semana ou propaganda de fornecedor. Pouca coisa explica, com seriedade técnica, como esses sistemas são operados em ambientes corporativos: dados ruins, latência apertada, custos sob escrutínio, auditoria obrigatória, regulação real e usuários que não aceitam respostas inventadas.
 
-O material reunido aqui diversas notas pessoais sobre arquitetura, MLOps e operação de sistemas de IA - decisões, padrões, anti-padrões e cicatrizes - agora compiladas e reorganizadas em forma de livro/handbook público.
+O material reunido aqui reúne diversas notas pessoais sobre arquitetura, MLOps e operação de sistemas de IA - decisões, padrões, anti-padrões e cicatrizes - agora compiladas e reorganizadas em forma de livro/handbook público.
 
 A tese é simples e atravessa o material inteiro:
 
@@ -75,7 +75,7 @@ Quando os exemplos forem implementados, viverão em `examples/`, favorecendo sta
 
 **Ruan Pato** trabalha com software e sistemas de IA em produção: arquitetura, MLOps/LLMOps/AgentOps, segurança, observabilidade e operação contínua. O fio condutor do trabalho dele é que IA enterprise é **software crítico** e que a maior parte do valor real aparece no sistema, não no modelo isolado.
 
-Este material é resultado de notas pessoais reorganizadas em forma pública. Não é manifesto nem peça promocional; é o tipo de handbook que se demonstra útil para quem está começando a subir sistemas em produção ou quem quer revistar conceitos fácilmente.
+Este material é resultado de notas pessoais reorganizadas em forma pública. Não é manifesto nem peça promocional; é o tipo de handbook que se demonstra útil para quem está começando a subir sistemas em produção ou quem quer revistar conceitos facilmente.
 
 - GitHub: <https://github.com/ruanpato>
 - LinkedIn: <https://www.linkedin.com/in/ruanpato/>
@@ -83,7 +83,7 @@ Este material é resultado de notas pessoais reorganizadas em forma pública. N�
 
 ## 🤝 Como contribuir futuramente
 
-Detalhes em [`docs/contributing.md`](https://github.com/ruanpato/production-ai-engineering/blob/main/CONTRIBUTING.md). Em resumo: correções editoriais e técnicas são bem-vindas via issue ou PR; conteúdo de marketing disfarçado de neutralidade não é aceito; referências precisam ser fontes técnicas verificáveis (papers, docs oficiais, specs, RFCs, blogs de engenharia).
+Detalhes em [`CONTRIBUTING.md`](https://github.com/ruanpato/production-ai-engineering/blob/main/CONTRIBUTING.md). Em resumo: correções editoriais e técnicas são bem-vindas via issue ou PR; conteúdo de marketing disfarçado de neutralidade não é aceito; referências precisam ser fontes técnicas verificáveis (papers, docs oficiais, specs, RFCs, blogs de engenharia).
 
 ## 🗒️ Convenções e estado deste rascunho
 

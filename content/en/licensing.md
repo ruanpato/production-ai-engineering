@@ -1,7 +1,7 @@
 ---
 title: "Licensing"
 lang: en
-order: 97
+order: 98
 status: stable
 tags: [referencia]
 ---
@@ -11,22 +11,6 @@ tags: [referencia]
 This document describes the project's licensing decision, its rationale and the trade-offs considered. The model is simple: the project separates a **content license** from a **code license**.
 
 > ⚠️ **Notice.** This document is **not** legal advice nor a definitive legal interpretation. For sensitive uses (legal, contractual, significant commercial), consult legal counsel specialized in intellectual property and open-source licensing.
-
----
-
-## 🗂️ Table of contents
-
-- [📜 Licensing](#-licensing)
-- [🗂️ Table of contents](#️-table-of-contents)
-- [🧭 1. Decision](#-1-decision)
-- [📖 2. Why CC BY 4.0 for the text?](#-2-why-cc-by-40-for-the-text)
-- [💻 3. Why MIT for the code?](#-3-why-mit-for-the-code)
-- [🧱 4. Why separate the text and code licenses?](#-4-why-separate-the-text-and-code-licenses)
-- [📝 5. Attribution](#-5-attribution)
-- [🪧 6. File headers (optional)](#-6-file-headers-optional)
-- [🌐 7. Distribution of the generated PDF](#-7-distribution-of-the-generated-pdf)
-- [🤖 8. Use in model training](#-8-use-in-model-training)
-- [📚 References](#-references)
 
 ---
 

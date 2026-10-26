@@ -3,7 +3,6 @@ title: "<Lab title>"
 lang: en
 order: 1
 status: draft
-est_minutes: 60
 risk: none           # none | lab-only
 ---
 
