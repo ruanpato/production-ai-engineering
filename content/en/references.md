@@ -1,7 +1,7 @@
 ---
 title: "References"
 lang: en
-order: 96
+order: 97
 status: stable
 tags: [referencia]
 ---
@@ -17,49 +17,6 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **Book section** — where the reference is used.
 
 > **Editorial principle.** Vendor documentation is included only when it is the best available technical source. Purely promotional material does not appear as a primary reference; when useful, it is placed in clearly identified "Further reading". Emerging topics have their maturity level declared explicitly, and the book does not claim consensus where there is none yet.
-
----
-
-## 🗂️ Table of contents
-
-- [📚 References](#-references)
-  - [🗂️ Table of contents](#️-table-of-contents)
-  - [📊 1. Traditional ML, MLOps and statistics](#-1-traditional-ml-mlops-and-statistics)
-    - [📑 Papers and books](#-papers-and-books)
-    - [📘 Official documentation](#-official-documentation)
-    - [📜 Technical blogs](#-technical-blogs)
-  - [🤖 2. LLM fundamentals, tokenization and fine-tuning](#-2-llm-fundamentals-tokenization-and-fine-tuning)
-    - [📑 Papers](#-papers)
-    - [📘 Official documentation and frameworks](#-official-documentation-and-frameworks)
-    - [📜 Official technical blogs](#-official-technical-blogs)
-  - [🧬 3. Embeddings, Matryoshka and retrieval](#-3-embeddings-matryoshka-and-retrieval)
-    - [📑 Papers](#-papers-1)
-    - [📘 Official documentation](#-official-documentation-1)
-    - [📜 Blogs / GraphRAG](#-blogs--graphrag)
-  - [🚀 4. Serving, throughput and inference optimization](#-4-serving-throughput-and-inference-optimization)
-    - [📑 Papers](#-papers-2)
-    - [📘 Official documentation](#-official-documentation-2)
-  - [🧩 5. Agentic AI, MCP and A2A](#-5-agentic-ai-mcp-and-a2a)
-    - [📘 MCP - Model Context Protocol](#-mcp---model-context-protocol)
-    - [🤝 A2A - Agent2Agent](#-a2a---agent2agent)
-    - [📘 Frameworks and SDKs](#-frameworks-and-sdks)
-    - [📑 Memory in agents](#-memory-in-agents)
-    - [🏗️ Architectural patterns](#️-architectural-patterns)
-  - [🛡️ 6. Security, identity and governance](#️-6-security-identity-and-governance)
-    - [📘 Risk frameworks](#-risk-frameworks)
-    - [🧰 Policy engines (policy-as-code)](#-policy-engines-policy-as-code)
-    - [🔐 Identity and authorization (OAuth/OIDC)](#-identity-and-authorization-oauthoidc)
-    - [🔓 Prompt injection and guardrails (research and practice)](#-prompt-injection-and-guardrails-research-and-practice)
-  - [🏗️ 7. AI supply chain](#️-7-ai-supply-chain)
-  - [🌐 8. AI gateways](#-8-ai-gateways)
-  - [🔭 9. Observability](#-9-observability)
-  - [🔄 10. Workflows and infrastructure](#-10-workflows-and-infrastructure)
-  - [💰 11. FinOps](#-11-finops)
-  - [✅ 12. Evaluation](#-12-evaluation)
-  - [🏋️ 13. Distributed training and scale (vocabulary)](#️-13-distributed-training-and-scale-vocabulary)
-  - [🧰 14. Frameworks and ecosystem](#-14-frameworks-and-ecosystem)
-  - [📖 15. Books and cross-cutting reading](#-15-books-and-cross-cutting-reading)
-  - [🚫 Note on promotional sources](#-note-on-promotional-sources)
 
 ---
 
@@ -151,7 +108,7 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **Anthropic — *Code execution with MCP* — <https://www.anthropic.com/engineering/code-execution-with-mcp>.** Ch. 4.10.
 - **Anthropic — *Measuring AI agent autonomy in practice* — <https://www.anthropic.com/news/measuring-agent-autonomy>.** Ch. 3.2.
 - **OpenAI Cookbook — *Prompt Caching 201* — <https://developers.openai.com/cookbook/examples/prompt_caching_201>.** Ch. 2.3.
-- **BentoML — *Prefill–decode disaggregation* — <https://bentoml.com/llm/inference-optimization/prefill-decode-disaggregation>.** Ch. 2.1, 6.3.
+- **Modular (LLM Inference Handbook, formerly BentoML) — *Prefill–decode disaggregation* — <https://handbook.modular.com/inference-optimization/prefill-decode-disaggregation/>.** Ch. 2.1, 6.3.
 
 ---
 
@@ -211,7 +168,7 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **NVIDIA Triton Inference Server — <https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/>.** Docs. Ch. 1.8.
 - **Hugging Face TGI — <https://huggingface.co/docs/text-generation-inference>.** Docs. Ch. 6.3.
 - **Ray Serve — <https://docs.ray.io/en/latest/serve/index.html>.** Docs. Ch. 1.8.
-- **TensorFlow Serving — <https://www.tensorflow.org/tfx/guide/serving>.** Docs. Ch. 1.8.
+- **TensorFlow Serving — <https://github.com/tensorflow/serving>.** Official repository. Ch. 1.8.
 - **TorchServe — <https://pytorch.org/serve/>.** Docs. Ch. 1.8.
 
 ---
@@ -221,17 +178,21 @@ Bibliography organized by theme. Each entry includes, when applicable:
 ### 📘 MCP - Model Context Protocol
 
 - **MCP — Architecture overview — <https://modelcontextprotocol.io/docs/learn/architecture>.** Spec. Ch. 3.5.
-- **MCP — Authorization (draft) — <https://modelcontextprotocol.io/specification/draft/basic/authorization>.** Spec. Ch. 4.8.
-- **MCP — Tools spec — <https://modelcontextprotocol.io/specification/2025-11-25/server/tools>.** Spec. Ch. 3.5.
+- **MCP — Authorization (2026-07-28 revision) — <https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization>.** Spec. Ch. 4.8.
+- **MCP — Tools spec (2026-07-28) — <https://modelcontextprotocol.io/specification/2026-07-28/server/tools>.** Spec. Ch. 3.5.
 - **MCP — Security best practices — <https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices>.** Ch. 3.5, 4.
+- **MCP — Security Best Practices (2026-07-28) — <https://modelcontextprotocol.io/specification/2026-07-28/basic/security_best_practices>.** Ch. 3.5, 4.8.
 
 ### 🤝 A2A - Agent2Agent
 
-- **A2A Protocol — official site — <https://a2a-protocol.org/latest/>.** Emerging spec. Ch. 3.5.
+- **A2A Protocol — official site — <https://a2a-protocol.org/latest/>.** Spec 1.0 (2026). Ch. 3.5.
+- **A2A Protocol — Specification (v1.0) — <https://a2a-protocol.org/latest/specification/>.** Spec. Ch. 3.5.
+- **A2A Protocol — Releases (v1.0.0, 2026-03-12) — <https://github.com/a2aproject/A2A/releases>.** Ch. 3.5.
 - **A2A Protocol — Google announcement (historical context) — <https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/>.** Context. Ch. 3.5.
+- **Agentic AI Foundation — A2A joining the AAIF (Aug 2026) — <https://aaif.io/blog/a2a-joins-aaif>.** Context (governance). Ch. 3.5.
 - **A2A — Agent Card schema (in the spec above).** Ch. 3.5.
 
-Maturity: emerging topic (spec evolving throughout 2024–2026). Treat it as a consolidating technology; no closed consensus.
+Maturity: 1.0 spec published in March 2026 (v1.0.0, 2026-03-12) and project transferred to the Agentic AI Foundation in August 2026; publicly named adoption is still scarce. Treat it as a consolidating technology; no closed consensus.
 
 ### 📘 Frameworks and SDKs
 
@@ -245,7 +206,7 @@ Maturity: emerging topic (spec evolving throughout 2024–2026). Treat it as a c
 - **OpenAI Agents SDK — Tracing — <https://openai.github.io/openai-agents-python/tracing/>.**
 - **OpenAI Agents SDK — Guardrails — <https://openai.github.io/openai-agents-python/guardrails/>.**
 - **OpenAI Agents SDK — Human-in-the-loop — <https://openai.github.io/openai-agents-python/human_in_the_loop/>.**
-- **Google Vertex AI Agent Engine — Memory Bank — <https://docs.cloud.google.com/agent-builder/agent-engine/use/adk>.**
+- **Google Cloud — *Agent Platform Memory Bank* (Gemini Enterprise Agent Platform; previously documented under Vertex AI Agent Engine) — <https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank>.** Ch. 3.6.
 - **Amazon Bedrock Agents — <https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html>.**
 - **Amazon Bedrock Knowledge Bases — <https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html>.**
 
@@ -265,8 +226,9 @@ Maturity: emerging topic (spec evolving throughout 2024–2026). Treat it as a c
 
 ### 📘 Risk frameworks
 
-- **OWASP — *Top 10 for LLM Applications* — <https://owasp.org/www-project-top-10-for-large-language-model-applications/>.** Framework. Ch. 4.
-- **OWASP — *Top 10 for LLM Applications 2025 PDF* — <https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf>.**
+- **OWASP — *Top 10 for LLM Applications* — <https://owasp.org/www-project-top-10-for-large-language-model-applications/>.** Framework (project page). Ch. 4.
+- **OWASP GenAI Security Project — *OWASP Top 10 for LLM Applications 2026* — <https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/>.** Edition used for the mapping in Ch. 4.2 (accessed 2026-10-25).
+- **OWASP — *Top 10 for LLM Applications 2025 PDF* (previous edition) — <https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf>.**
 - **NIST — *AI Risk Management Framework 1.0* — <https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf>.** Ch. 0.3, 4.
 - **NIST — *Generative AI Profile* (AI RMF) — <https://www.nist.gov/itl/ai-risk-management-framework>.** Ch. 4.2.
 - **NIST — alternative publication of the GenAI Profile — <https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence>.**
@@ -278,7 +240,7 @@ Maturity: emerging topic (spec evolving throughout 2024–2026). Treat it as a c
 - **Open Policy Agent — *Policy Language (Rego)* — <https://www.openpolicyagent.org/docs/policy-language>.** Ch. 4.7.
 - **Open Policy Agent — *Policy Testing* — <https://www.openpolicyagent.org/docs/policy-testing>.** Ch. 4.7.
 - **AWS Cedar — *Policy Language Reference* — <https://docs.cedarpolicy.com/policies/syntax-policy.html>.** Ch. 4.7.
-- **AuthZed SpiceDB — Concepts — <https://authzed.com/docs/spicedb/concepts/zedtokens>.** Ch. 4.7.
+- **AuthZed SpiceDB — Consistency and ZedTokens — <https://authzed.com/docs/spicedb/concepts/consistency>.** Ch. 4.7.
 - **Google Zanzibar (paper) — <https://research.google/pubs/pub48190/>.** Theoretical basis of SpiceDB.
 
 ### 🔐 Identity and authorization (OAuth/OIDC)
@@ -288,6 +250,9 @@ Maturity: emerging topic (spec evolving throughout 2024–2026). Treat it as a c
 - **IETF RFC 8628 — *OAuth 2.0 Device Authorization Grant* — <https://datatracker.ietf.org/doc/html/rfc8628>.** Ch. 4.8.
 - **IETF RFC 7636 — *PKCE* — <https://datatracker.ietf.org/doc/html/rfc7636>.** Ch. 4.8.
 - **IETF RFC 9700 — *OAuth 2.0 Security Best Current Practice* — <https://datatracker.ietf.org/doc/html/rfc9700>.** Ch. 4.8.
+- **IETF RFC 9728 — *OAuth 2.0 Protected Resource Metadata* — <https://datatracker.ietf.org/doc/html/rfc9728>.** Ch. 4.8.
+- **IETF RFC 8707 — *Resource Indicators for OAuth 2.0* — <https://datatracker.ietf.org/doc/html/rfc8707>.** Ch. 4.8.
+- **IETF RFC 9207 — *OAuth 2.0 Authorization Server Issuer Identification* — <https://datatracker.ietf.org/doc/html/rfc9207>.** Ch. 4.8.
 - **OpenID Connect Core 1.0 — <https://openid.net/specs/openid-connect-core-1_0.html>.** Ch. 4.8.
 - **Kubernetes — *ServiceAccount Tokens* — <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/>.**
 - **AWS — *IAM Roles for Service Accounts* — <https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html>.**
@@ -377,7 +342,7 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **Ragas — Faithfulness — <https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/>.**
 - **Ragas — Context Precision — <https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_precision/>.**
 - **Zheng et al. — *Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena* (2023).** Paper — <https://arxiv.org/abs/2306.05685>. Ch. 2.11, 5.4.
-- **Liu et al. — *G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment* (2023).** Paper — <https://arxiv.org/abs/2211.09110>. Ch. 2.11.
+- **Liu et al. — *G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment* (2023).** Paper — <https://arxiv.org/abs/2303.16634>. Ch. 2.11.
 
 ---
 

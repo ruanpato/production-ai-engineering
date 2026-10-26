@@ -11,7 +11,7 @@ ML tradicional, LLMs, RAG, Agentic AI, segurança, governança, observabilidade,
 O conteúdo é **legível direto no GitHub** e também serve de base para o site (MkDocs/GitHub Pages) e futuro PDF.
 
 - **Autor:** Ruan Pato · [GitHub](https://github.com/ruanpato) · [LinkedIn](https://www.linkedin.com/in/ruanpato/) · [Site](https://ruanpato.com)
-- **Idioma:** português brasileiro (estrutura pronta para versão em inglês)
+- **Idiomas:** português brasileiro e inglês (`content/pt-BR/` e `content/en/`, com paridade de arquivos)
 - **Status:** rascunho técnico aberto (v0.1)
 
 ## Comece por aqui

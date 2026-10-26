@@ -3,7 +3,6 @@ title: "<Module title>"
 lang: en
 order: 1
 status: draft        # draft | review | stable
-est_minutes: 45
 tags: [foundations]
 ---
 

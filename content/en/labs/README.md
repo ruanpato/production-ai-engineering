@@ -1,8 +1,8 @@
 ---
 title: "Labs"
 lang: en
-order: 98
-status: stable
+order: 99
+status: draft
 tags: [exemplos]
 ---
 
@@ -13,20 +13,6 @@ This directory will contain the practical examples referenced by the book (see [
 > ⚠️ **Current status.** No example is implemented in this version of the project. All of them appear as **planned**. This folder exists today as a **placeholder** and as a reference for the standard structure. The repository should **not yet be treated as a runnable collection**; v0.1 prioritizes structure, content and a technical map.
 >
 > 🎯 **Principle.** Each example, when implemented, must be **"easy to run and see by yourself"**: clone, run a single command, see it working locally in minutes, with no mandatory dependency on paid credentials.
-
----
-
-## 🗂️ Table of contents
-
-- [🧪 Practical Examples](#-practical-examples)
-  - [🗂️ Table of contents](#️-table-of-contents)
-  - [🧭 Standard structure of each example](#-standard-structure-of-each-example)
-  - [🚀 How to run](#-how-to-run)
-  - [🧰 Preferred stack](#-preferred-stack)
-  - [📊 Current status](#-current-status)
-  - [🧾 Contributing examples](#-contributing-examples)
-  - [⚠️ Disclaimer](#️-disclaimer)
-  - [📜 License](#-license)
 
 ---
 
@@ -91,7 +77,7 @@ make test
 
 ## 📊 Current status
 
-The project's first phase delivers the **editorial structure** — the examples have **not** yet been implemented and are part of the roadmap, not the current delivery. They are **planned**, with priority and a suggested order of execution.
+The project's first phase delivers the **editorial structure** — the examples have **not** yet been implemented and are part of the roadmap, not the current delivery. They are **planned** in the examples matrix maintained internally by the author; this index records the groups and the suggested order.
 
 The first suggested batch for implementation:
 
@@ -114,8 +100,7 @@ Each example, when implemented, must update the matrix with the correct status (
 
 Before submitting a new example:
 
-- Check whether it is in the internal examples matrix.
-- If it is not, open an issue proposing the example.
+- Check whether it is covered by the groups in this index; if it is not, open an issue proposing the example.
 - Follow the standard structure above.
 - Keep the constraints: runs in ≤ 10 minutes, no mandatory paid credentials, with minimal tests.
 
