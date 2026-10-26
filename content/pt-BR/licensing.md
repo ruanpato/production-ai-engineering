@@ -1,7 +1,7 @@
 ---
 title: "Licenciamento"
 lang: pt-BR
-order: 97
+order: 98
 status: stable
 tags: [referencia]
 ---
@@ -14,29 +14,13 @@ Este documento descreve a decisão de licenciamento do projeto, sua justificativ
 
 ---
 
-## 🗂️ Sumário
-
-- [📜 Licenciamento](#-licenciamento)
-- [🗂️ Sumário](#️-sumário)
-- [🧭 1. Decisão](#-1-decisão)
-- [📖 2. Por que CC BY 4.0 para o texto?](#-2-por-que-cc-by-40-para-o-texto)
-- [💻 3. Por que MIT para o código?](#-3-por-que-mit-para-o-código)
-- [🧱 4. Por que separar licença de texto e de código?](#-4-por-que-separar-licença-de-texto-e-de-código)
-- [📝 5. Atribuição](#-5-atribuição)
-- [🪧 6. Cabeçalhos de arquivo (opcional)](#-6-cabeçalhos-de-arquivo-opcional)
-- [🌐 7. Distribuição de PDF gerado](#-7-distribuição-de-pdf-gerado)
-- [🤖 8. Uso em treinamento de modelos](#-8-uso-em-treinamento-de-modelos)
-- [📚 Referências](#-referências)
-
----
-
 ## 🧭 1. Decisão
 
 O repositório contém dois tipos de artefato com perfis diferentes, e cada um recebe a licença mais adequada ao seu uso:
 
 | Artefato | Tipo | Licença | Arquivo |
 |---|---|---|---|
-| Texto do livro (`BOOK.md`, `README.md`, `docs/*.md`, diagramas, tabelas, materiais editoriais) | Conteúdo editorial | **Creative Commons Attribution 4.0 International (CC BY 4.0)** | [`LICENSE`](https://github.com/ruanpato/production-ai-engineering/blob/main/LICENSE) |
+| Texto do livro (`content/**`, `BOOK.md`, `README.md`, diagramas, tabelas, materiais editoriais) | Conteúdo editorial | **Creative Commons Attribution 4.0 International (CC BY 4.0)** | [`LICENSE`](https://github.com/ruanpato/production-ai-engineering/blob/main/LICENSE) |
 | Código (scripts, notebooks, exemplos executáveis em `examples/**`) | Software | **MIT License** | [`LICENSE-CODE`](https://github.com/ruanpato/production-ai-engineering/blob/main/LICENSE-CODE) |
 
 A separação é comum em projetos editoriais técnicos com código de apoio. As duas licenças coexistem na raiz do repositório:

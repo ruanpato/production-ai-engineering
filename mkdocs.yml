@@ -32,7 +32,7 @@ plugins:
         - locale: pt-BR
           default: true
           name: Português (Brasil)
-        # Fase 5 (bilíngue): en em tradução incremental; páginas sem en caem no pt-BR (default).
+        # Bilíngue: pt-BR e en com paridade de arquivos (`scripts/check-i18n-parity.sh`); páginas sem en caem no pt-BR (default).
         - locale: en
           name: English
 

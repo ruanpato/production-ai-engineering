@@ -1,8 +1,8 @@
 ---
 title: "Labs"
 lang: pt-BR
-order: 98
-status: stable
+order: 99
+status: draft
 tags: [exemplos]
 ---
 
@@ -13,20 +13,6 @@ Este diretório vai conter os exemplos práticos referenciados pelo livro (ver [
 > ⚠️ **Estado atual.** Nenhum exemplo está implementado nesta versão do projeto. Todos aparecem como **planejados**. Esta pasta existe hoje como **espaço reservado** e como referência da estrutura padrão. O repositório ainda **não deve ser tratado como coleção executável**; a v0.1 prioriza estrutura, conteúdo e mapa técnico.
 >
 > 🎯 **Princípio.** Cada exemplo, quando for implementado, deve ser **"easy to run and see by yourself"**: clonar, rodar um único comando, ver funcionando localmente em minutos, sem dependência obrigatória de credenciais pagas.
-
----
-
-## 🗂️ Sumário
-
-- [🧪 Exemplos Práticos](#-exemplos-práticos)
-  - [🗂️ Sumário](#️-sumário)
-  - [🧭 Estrutura padrão de cada exemplo](#-estrutura-padrão-de-cada-exemplo)
-  - [🚀 Como rodar](#-como-rodar)
-  - [🧰 Stack preferida](#-stack-preferida)
-  - [📊 Status atual](#-status-atual)
-  - [🧾 Contribuindo com exemplos](#-contribuindo-com-exemplos)
-  - [⚠️ Disclaimer](#️-disclaimer)
-  - [📜 Licença](#-licença)
 
 ---
 
@@ -91,7 +77,7 @@ make test
 
 ## 📊 Status atual
 
-A primeira fase do projeto entrega **estrutura editorial** - os exemplos ainda **não** foram implementados e fazem parte do roadmap, não da entrega atual. Eles estão **planejados** em [`../docs/examples-map.md`](../labs/README.md), com prioridade e ordem sugerida de execução.
+A primeira fase do projeto entrega **estrutura editorial** - os exemplos ainda **não** foram implementados e fazem parte do roadmap, não da entrega atual. Eles estão **planejados** na matriz de exemplos mantida internamente pelo autor; este índice registra os grupos e a ordem sugerida.
 
 A primeira leva sugerida para implementação:
 
@@ -114,12 +100,11 @@ Cada exemplo, quando implementado, deve atualizar a matriz com o status correto 
 
 Antes de submeter um novo exemplo:
 
-- Verifique se ele está em `../docs/examples-map.md`.
-- Se não estiver, abra uma issue propondo o exemplo.
+- Verifique se ele está previsto nos grupos deste índice; se não estiver, abra uma issue propondo o exemplo.
 - Siga a estrutura padrão acima.
 - Mantenha as restrições: rodar em ≤ 10 minutos, sem credenciais pagas obrigatórias, com testes mínimos.
 
-Detalhes completos em [`../docs/contributing.md`](https://github.com/ruanpato/production-ai-engineering/blob/main/CONTRIBUTING.md).
+Detalhes completos em [`CONTRIBUTING.md`](https://github.com/ruanpato/production-ai-engineering/blob/main/CONTRIBUTING.md).
 
 ---
 
@@ -131,7 +116,7 @@ Os exemplos têm fins **didáticos**. Eles **não** são código de produção:
 - Sem suporte oficial.
 - Sem garantia de funcionamento em versões futuras de dependências.
 
-Para usar trechos em produção, revise, adicione testes, hardening, segredos adequados, observabilidade e tratamento de erros conforme as boas práticas descritas no `BOOK.md`.
+Para usar trechos em produção, revise, adicione testes, hardening, segredos adequados, observabilidade e tratamento de erros conforme as boas práticas descritas neste handbook.
 
 ---
 
@@ -139,4 +124,4 @@ Para usar trechos em produção, revise, adicione testes, hardening, segredos ad
 
 Os exemplos práticos ainda são **planejados** - esta pasta hoje serve apenas como espaço reservado e como referência da estrutura padrão.
 
-Quando os exemplos forem implementados, o código aqui em `examples/` será licenciado sob **MIT License** via [`../LICENSE-CODE`](https://github.com/ruanpato/production-ai-engineering/blob/main/LICENSE-CODE). O conteúdo textual do livro e da documentação continua sob CC BY 4.0 via [`../LICENSE`](https://github.com/ruanpato/production-ai-engineering/blob/main/LICENSE). Detalhes em [`../docs/licensing.md`](../licensing.md).
+Quando os exemplos forem implementados, o código aqui em `examples/` será licenciado sob **MIT License** via [`../LICENSE-CODE`](https://github.com/ruanpato/production-ai-engineering/blob/main/LICENSE-CODE). O conteúdo textual do livro e da documentação continua sob CC BY 4.0 via [`../LICENSE`](https://github.com/ruanpato/production-ai-engineering/blob/main/LICENSE). Detalhes em [`licensing.md`](../licensing.md).

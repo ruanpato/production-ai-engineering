@@ -1344,7 +1344,7 @@ Cobrir o mínimo estatístico operacional: bias, variance, overfitting/underfitt
 - **Calibração** - correspondência entre probabilidade prevista e frequência real observada.
 - **ECE (Expected Calibration Error)** - diferença média ponderada entre confiança e acurácia em bins.
 - **Intervalo de confiança** - faixa de incerteza para uma métrica.
-- **Significância estatística** - t-test, bootstrap; permitem dizer se uma diferença é real ou ruído.
+- **Significância estatística** - incompatibilidade dos dados com uma hipótese nula sob um desenho e suas premissas. Não mede a probabilidade de a hipótese ser verdadeira, o tamanho do efeito ou sua utilidade prática.
 
 #### 📏 Métricas de classificação
 
@@ -1393,7 +1393,12 @@ Cobrir o mínimo estatístico operacional: bias, variance, overfitting/underfitt
 - Avaliar com múltiplas métricas.
 - Reportar intervalos de confiança via bootstrap.
 - Aplicar calibração isotonic ou Platt scaling quando necessário.
-- Usar testes pareados (bootstrap, McNemar) antes de declarar vitória.
+- Comparar as mesmas unidades com testes ou intervalos pareados quando o desenho permitir; McNemar se aplica a resultados binários pareados sob suas premissas.
+- Definir efeito mínimo relevante, unidade amostral e análise antes de olhar o resultado. Ausência de significância não demonstra equivalência nem ausência de efeito; equivalência e não inferioridade exigem margens e desenho próprios.
+- Em agentes, separar variação entre tarefas da variação entre execuções. Reamostrar tarefas (ou famílias/repositórios quando houver dependência), preservando o pareamento; repetir a mesma tarefa não cria novas tarefas independentes.
+- Reportar tamanho do efeito, intervalo, quantidade de unidades, orçamento de execução e limites de generalização. Para o protocolo completo, ver [Cap. 5.7](content/pt-BR/05-observabilidade-avaliacao/05.07-tarefas-verificadores-e-evidencia.md).
+
+Fonte primária: [ASA, declaração sobre p-valores](https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf), consultada em 24/10/2026.
 
 #### 📚 Referências
 
@@ -1507,7 +1512,7 @@ Definir splits, validação cruzada e prevenção de leakage como práticas **ob
 - **Cross-validation** - k-fold para datasets pequenos; usar com cautela em dados temporais.
 - **Validação temporal** - para dados com ordem temporal, treinar no passado e validar no futuro.
 - **Stratified split** - preserva distribuição de classes.
-- **Group split** - preserva entidade (usuário, tenant) entre treino e teste.
+- **Group split** - mantém cada grupo (usuário, tenant, família de tarefa ou repositório) em uma única partição, sem atravessar treino e teste. Defina a unidade de generalização antes de gerar variantes.
 
 #### 🚨 Tipos de leakage
 
@@ -2061,7 +2066,7 @@ Padrões úteis:
 - **QLoRA** - LoRA sobre base 4-bit (NF4); permite fine-tune de modelos grandes em hardware modesto.
 - **Adapter / Prefix / IA³ / DoRA** - variações com diferentes trade-offs de parâmetros e qualidade.
 - **Instruction tuning / SFT** - treino supervisionado em pares instrução-resposta.
-- **Preference tuning (DPO, KTO, ORPO etc.)** - alinhar comportamento a preferências; mais delicado e fora do escopo deste livro.
+- **Preference tuning (DPO, KTO, ORPO etc.)** - alinhar comportamento a preferências; objetivo distinto do método de atualização de pesos. Introdução operacional no Cap. 7.8.
 
 #### ⚠️ Quando NÃO usar fine-tuning
 
@@ -2768,7 +2773,7 @@ A resposta a essa pergunta aponta o mecanismo, e o mecanismo aponta a técnica.
 
 #### 🚨 Anti-padrões frequentes
 
-- **Fine-tuning para inserir fatos.** Conhecimento factual mutável vai para RAG ou tools. Fine-tuning para fatos envelhece em semanas e exige retreinar.
+- **Fine-tuning como base factual atualizável e auditável.** Treinamento pode incorporar conhecimento, mas não garante recuperação fiel, atualização ou citação. Para fatos mutáveis e acesso governado, RAG/tools costuma ser a primeira opção; adaptação de domínio e conhecimento estável podem justificar continued pretraining ou SFT, com avaliação independente e análise de regressões.
 - **Prompt como política de segurança.** Prompt é instrução probabilística. Política crítica vai em código.
 - **RAG sem avaliação de retrieval.** Promove-se um índice novo baseado em "intuição"; recall cai 20%; ninguém percebe até o incidente.
 - **Trocar modelo grande por modelo grande "diferente"** sem antes examinar routing, RAG, prompt e structured outputs. Quase sempre há ganho mais barato antes do upgrade.
@@ -2777,7 +2782,7 @@ A resposta a essa pergunta aponta o mecanismo, e o mecanismo aponta a técnica.
 
 1. Antes de tudo, **structured outputs + RAG + bom prompt**. Resolve a maior parte dos casos.
 2. **Routing** entre modelos pequeno e grande quando a variabilidade de carga justifica. Reduz custo sem mexer em qualidade média.
-3. **Fine-tuning** apenas se houver eval mostrando que prompt + RAG não alcançam o resultado e que existe dataset estável o suficiente para treinar e manter.
+3. **Fine-tuning** quando uma hipótese avaliada justificar mudar pesos: comportamento, adaptação ou custo/latência. Comparar com uma baseline adequada (prompt/RAG quando pertinentes), com dataset e capacidade para treinar e manter. Não é necessário esgotar RAG para problemas de outra natureza.
 4. **Distillation** quando o modelo grande é custo dominante, há tarefa específica bem definida e existe orçamento para eval contínuo do student contra o teacher.
 5. **Multi-agent / agente complexo** apenas com workflow já esgotado.
 
@@ -4668,12 +4673,12 @@ Exemplos rápidos:
 **KV cache por sequência:**
 
 ```text
-KV_per_token ≈ 2 × num_layers × num_heads × head_dim × bytes_per_value
+KV_per_token ≈ 2 × num_layers × num_kv_heads × head_dim × bytes_per_value
 KV_per_sequence ≈ KV_per_token × seq_len
 KV_total ≈ KV_per_sequence × concurrency
 ```
 
-Para um modelo 7B FP16 com 32 camadas, 32 cabeças, head_dim 128, 4 KB/token é uma ordem de grandeza razoável. Em 4096 tokens de janela e 32 sequências simultâneas, a KV cache pode passar facilmente de **dezenas de GB**, o que explica porque batching e paged attention são tão críticos.
+Para um exemplo com 32 camadas, 32 cabeças KV, head_dim 128 e FP16, a fórmula resulta em 524.288 bytes por token (512 KiB). Em 4096 tokens e 32 sequências, são 64 GiB apenas de KV cache. Em GQA/MQA, use o número de cabeças KV, não o de cabeças de query. Layout, precisão e otimizações do engine alteram o uso real; a medição continua obrigatória.
 
 **Tokens totais por tarefa:**
 
@@ -5086,14 +5091,16 @@ Fine-tuning é **ruim** para:
 
 #### 🧠 Quando usar cada técnica
 
-| Técnica | Para que | Custo | Risco principal |
-|---|---|---|---|
-| **Full fine-tuning** | Mudança ampla; reorganizar comportamento | Alto (compute, dados, eval) | Regressão em tarefas não vistas |
-| **LoRA** | Adapters de baixo posto sobre camadas selecionadas | Médio | Qualidade depende de hiperparâmetros e cobertura do dataset |
-| **QLoRA** | LoRA sobre base 4-bit (NF4) | Médio-baixo (GPU única) | Variação numérica; teste com cuidado |
-| **Distillation** | Reduzir custo de inferência mantendo comportamento | Alto upfront, paga em serving | Student diverge do teacher ao longo do tempo |
-| **Instruction tuning / SFT** | Ensinar a seguir instruções estruturadas | Médio | Overfit a estilo |
-| **Preference tuning (DPO/KTO/ORPO)** | Alinhar a preferências | Alto + delicado | Regressão em capacidades não cobertas; fora do escopo deste livro |
+Há eixos diferentes; eles podem ser combinados.
+
+| Eixo | Opções | Decisão |
+|---|---|---|
+| Objetivo e sinal de aprendizado | SFT por demonstrações; DPO por pares de preferência; RL por recompensa | O que otimizar e com qual supervisão |
+| Parâmetros atualizados | Full fine-tuning; adaptadores LoRA | Quais pesos recebem atualização |
+| Representação da base | Precisão escolhida; base quantizada com LoRA (QLoRA) | Memória, kernels e compatibilidade numérica |
+| Transferência de comportamento | Distillation, por exemplo via SFT em saídas do teacher | De onde vem o sinal do student |
+
+SFT, DPO e algoritmos de RL podem atualizar todos os pesos ou adaptadores quando a implementação suportar. QLoRA mantém a base quantizada congelada e treina adaptadores; não define por si o objetivo. Distillation não garante economia nem fidelidade: compare o custo total e as regressões. Custo depende do modelo, contexto, quantidade/qualidade dos dados, referências, rollouts e avaliação, sem uma ordem universal entre essas técnicas.
 
 #### 🧠 Diferença entre comportamento, formato, estilo e conhecimento
 
@@ -5101,7 +5108,7 @@ Em uma conversa típica de planejamento:
 
 - Se a frustração é "**o modelo não responde no formato X**" -> use structured outputs, prompt e function calling. Fine-tuning só quando o problema persistir em larga escala.
 - Se a frustração é "**o modelo não fala como a gente**" -> use fine-tuning leve (LoRA) para estilo, mantendo conhecimento em RAG.
-- Se a frustração é "**o modelo não sabe X**" -> use RAG ou tools. **Não** fine-tuning.
+- Se a frustração é "**o modelo não sabe X**", distinguir acesso a fatos mutáveis de adaptação de domínio. RAG/tools facilita atualização, autorização e evidência; treinamento também pode incorporar conhecimento, com custo, memorização e regressões a avaliar.
 - Se a frustração é "**o modelo às vezes ignora a política**" -> use policy-as-code e HITL. **Não** fine-tuning.
 
 #### 🛡️ Obrigações operacionais mínimas
@@ -5116,13 +5123,13 @@ Em uma conversa típica de planejamento:
 
 - FT em dataset com PII não tratada -> vazamento via memorização.
 - FT com dataset pequeno e barulhento -> overfitting catastrófico.
-- FT para fatos -> conhecimento "envelhece"; volta a errar em semanas.
+- FT usado como única fonte de fatos mutáveis -> atualização e recuperação factual não são garantidas.
 - Mistura de adapters QLoRA treinados em versões diferentes da base 4-bit.
 - Promoção de modelo FT sem eval comparativo.
 
 #### ⚠️ Sobre RLHF / DPO no escopo deste livro
 
-RLHF, DPO, KTO e ORPO são técnicas de alinhamento por preferência. São relevantes para times que treinam o modelo base **inteiro**. Para a imensa maioria de equipes enterprise que consome modelo pronto e faz FT leve, essas técnicas são **fora do escopo operacional** - citadas para que o vocabulário não fique ausente, mas sem aprofundar técnicas específicas.
+RLHF designa uma família de métodos que usa feedback humano. Em sua formulação clássica, demonstrações alimentam SFT, preferências treinam um reward model e um algoritmo como PPO otimiza a política com controle de desvio da referência. DPO clássico otimiza diretamente pares chosen/rejected em relação a uma política de referência, sem exigir reward model separado nem o mesmo loop online de PPO. Não exige treinar um modelo fundacional do zero nem atualizar todos os pesos. Mesmo uma equipe sem acesso a pesos pode produzir demonstrações, preferências, trajetórias e verificadores para esse ciclo, sem atribuir a si um ganho causal que não mediu. O [Cap. 7.8](content/pt-BR/07-deployment-lifecycle/07.08-pos-treinamento-dados-e-supervisao.md) introduz a prática e os limites.
 
 #### 📚 Referências
 

@@ -2,7 +2,7 @@
 
 - **Tone:** technical, direct, no marketing, minimal emojis.
 - **Headings:** `#` title per file; `##`/`###` sections; sentence case.
-- **Front matter:** required on modules/labs/projects (`title, lang, order, status, est_minutes`).
+- **Front matter:** required on modules/labs/projects (`title, lang, order, status`). `status` is one of `draft` (planned or incomplete), `review` (complete, awaiting review) or `stable`.
 - **Links:** relative within `content/`; reference external sources in `references.md`.
 - **Code blocks:** always tag a language — e.g. `bash`, `python`, `text`, `yaml`.
 - **Diagrams:** Mermaid allowed, but **always** follow with a textual description (PDF/a11y).

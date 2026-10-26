@@ -4,8 +4,6 @@ handbook
 roadmap
 MkDocs
 mkdocs
-linguist
-frontmatter
 operationalizable
 operationalized
 Entregável
@@ -31,6 +29,7 @@ canary
 prompt
 MCP
 A2A
+AAIF
 OWASP
 ATLAS
 STRIDE
@@ -95,7 +94,6 @@ Nomic
 ONNX
 ORPO
 Ollama
-Overfit
 Overfitting
 PKCE
 Pandera
@@ -158,7 +156,6 @@ deployar
 evals
 exfiltration
 exfiltração
-fácilmente
 glossario
 governanca
 groundedness
@@ -215,3 +212,13 @@ browserless
 pseudonymization
 microarchitecture
 DMBOK
+Evol
+GRPO
+PEFT
+pretraining
+Reamostrar
+RLAIF
+RLVR
+rollouts
+serialização
+tokenizado
