@@ -87,6 +87,14 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **Where it shows up.** Discovery in multi-agent systems.
 - **Risks.** Capabilities that are too broad; lack of explicit versioning.
 
+### Agent Skills / AGENTS.md
+
+- **What it is.** Two file conventions, not protocols, for instructing agents. **`AGENTS.md`** is free-form Markdown at the repository root (or nested in monorepos; the closest file wins) with guidance for coding agents, now governed by the Agentic AI Foundation. **Agent Skills** is an open format in which a folder with a `SKILL.md` (front matter with `name` and `description`, plus `scripts/`, `references/` and `assets/`) packages portable instructions loaded on demand; the `allowed-tools` field is experimental.
+- **Where it shows up.** Repositories used by coding agents; distribution of reusable procedures across agents and tools.
+- **Risks.** They enter the model's context as text: they are an indirect prompt injection and supply-chain surface, like tool descriptions. They require review, versioning and provenance.
+- **Relationship.** They complement MCP (which standardizes tools/resources) without replacing it; see Ch. 3.5, 4.3, 4.9.
+- **Maturity.** `AGENTS.md` is a widely adopted convention; Agent Skills is a recent open format (late 2025), with no confirmed foundation governance.
+
 ### AWQ (Activation-aware Weight Quantization)
 
 - **What it is.** A post-training quantization method that preserves "salient" weight channels (high activation magnitude) and quantizes the rest.
@@ -178,6 +186,13 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 
 - **What it is.** The maximum number of tokens the model accepts in a call.
 - **Trade-off.** Large windows increase cost and can degrade quality due to noise.
+
+### Contextual retrieval
+
+- **What it is.** An **indexing** technique in which an LLM writes a short context (50–100 tokens) for each chunk, derived from the whole document, before generating the embedding and indexing in BM25.
+- **Where it shows up.** RAG pipelines in which chunks lose their referents ("the company", "the contract") when cut from the document.
+- **Risks.** A one-off cost of one generation per chunk at each reindexing; gains measured on the author's own benchmark (top-20 retrieval failures −49% with contextual BM25 and −67% with reranking); validate on your golden set.
+- **Relationship.** Orthogonal to query-side techniques (HyDE, rewriting) and to late chunking; combines with hybrid search and reranking. See Ch. 2.7.
 
 ### Continuous batching
 
@@ -379,6 +394,14 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **What it is.** A combination of lexical search (BM25) and vector search.
 - **When to use.** Technical documents with acronyms, codes and natural language.
 
+### HyDE (Hypothetical Document Embeddings)
+
+- **What it is.** A query-side technique in which an LLM writes a **hypothetical document** that would answer the question; the embedding of that document (mean of N samples plus the query embedding) is used for dense search, shifting the problem from "query → document" to "document → document".
+- **Where it shows up.** Zero-shot retrieval without relevance labels; short queries against long documents; a domain outside the retriever's training.
+- **Risks.** One synchronous generation per query (2.5–3× retrieval latency in independent measurements); the LLM may hallucinate in the wrong direction on ambiguous queries, rare entities and recent facts; with a fine-tuned encoder or a strong reranker the gain shrinks or turns into a loss.
+- **Relationship.** An alternative to rewriting and multi-query; competes with hybrid search + reranking and with contextual retrieval. See Ch. 2.7.
+- **Maturity.** A 2023 paper with mixed evidence in 2024–2025; a niche technique, not a default.
+
 ### HNSW (Hierarchical Navigable Small World)
 
 - **What it is.** An approximate nearest neighbor (ANN) search algorithm for vector similarity based on hierarchical graphs.
@@ -439,10 +462,24 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **Limits.** An approximation, not the "truth" of the model.
 - **Reference.** Ribeiro, Singh & Guestrin (KDD 2016).
 
+### Late interaction
+
+- **What it is.** A family of retrieval models (ColBERT, ColBERTv2, ColPali) that keeps **one vector per document token** and scores the query against all of them (MaxSim), instead of compressing each document into a single vector.
+- **Where it shows up.** High-precision search; visually rich documents (tables, figures, layouts), where ColPali embeds page images without OCR.
+- **Risks.** A larger index (ColBERTv2's residual compression shrinks it 6–10×, still above single-vector) and more expensive scoring; it has not been shown to replace OCR in every case.
+- **Relationship.** An alternative to traditional dense embeddings; combines with reranking. See Ch. 2.7.
+
 ### Latency (p50, p95, p99)
 
 - **What it is.** Response-time metrics.
 - **Important.** Production SLOs should use percentiles, not the average.
+
+### Learned sparse retrieval
+
+- **What it is.** Retrieval in which a neural model learns **sparse vectors over the vocabulary** (per-term weights, with term expansion), indexable in an ordinary inverted index. Canonical example: SPLADE (v2, 2021).
+- **Where it shows up.** As a "learned" lexical component inside hybrid search, in place of or alongside BM25.
+- **Risks.** Depends on supervised training or distillation; gains reported on academic benchmarks must be confirmed on your own corpus.
+- **Relationship.** Between BM25 (sparse, not learned) and dense embeddings; see Ch. 2.7.
 
 ### Limited autonomy
 
@@ -653,6 +690,13 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **What they are.** The two phases of LLM inference.
   - **Prefill** — processes the prompt in parallel; the dominant latency of TTFT. Limited by compute.
   - **Decode** — generates tokens one by one; the dominant latency of TPOT. Limited by memory bandwidth.
+
+### Protected Resource Metadata (RFC 9728)
+
+- **What it is.** A metadata document published by an OAuth 2.0 *resource server* at a well-known URL, telling the client, among other fields, which *authorization servers* issue tokens valid for that resource and which scopes it accepts.
+- **Where it shows up.** Authorization of remote MCP servers: since the 2025-06-18 revision the MCP server is classified as a resource server and **must** publish RFC 9728, and the client **must** send *resource indicators* (RFC 8707) so the token is issued for that specific server.
+- **Risks.** Without audience validation, a token issued for one service can be reused at another (*token passthrough*, forbidden by the spec); metadata discovery is an SSRF vector if the client follows URLs without restriction.
+- **Relationship.** Basis of the client → resource server → authorization server flow described in Ch. 4.8; see also Ch. 3.5.
 
 ### Provenance
 

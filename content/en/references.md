@@ -73,6 +73,12 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **Frantar et al. — *GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers* (ICLR 2023).** Paper — <https://arxiv.org/abs/2210.17323>. Ch. 2.2.
 - **Lin et al. — *AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration* (MLSys 2024).** Paper — <https://arxiv.org/abs/2306.00978>. Ch. 2.2.
 - **Xiao et al. — *SmoothQuant* (ICML 2023).** Paper — <https://arxiv.org/abs/2211.10438>. Ch. 2.2.
+- **OpenAI — *gpt-oss-120b & gpt-oss-20b Model Card* (2025).** Paper — <https://arxiv.org/abs/2508.10925>. MoE weights post-trained in MXFP4. Ch. 2.2.
+- **Biderman et al. — *LoRA Learns Less and Forgets Less* (TMLR 2024).** Paper — <https://arxiv.org/abs/2405.09673>. Limits of LoRA in continued pretraining and instruction tuning; forgets less. Ch. 7.6.
+- **Gekhman et al. — *Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?* (EMNLP 2024).** Paper — <https://arxiv.org/abs/2405.05904>. New facts learned slowly; hallucination grows. Ch. 7.6.
+- **Ovadia et al. — *Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs* (2024).** Paper — <https://arxiv.org/abs/2312.05934>. RAG beats unsupervised fine-tuning for knowledge. Ch. 2.10, 7.6.
+- **Chen et al. — *MEDITRON-70B: Scaling Medical Pretraining for Large Language Models* (2023).** Paper — <https://arxiv.org/abs/2311.16079>. Domain continued pretraining. Ch. 7.6.
+- **Colombo et al. — *SaulLM-7B: A pioneering Large Language Model for Law* (2024).** Paper — <https://arxiv.org/abs/2403.03883>. Domain continued pretraining. Ch. 7.6.
 
 ### 📘 Official documentation and frameworks
 
@@ -98,6 +104,8 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **bitsandbytes — <https://huggingface.co/docs/bitsandbytes/main/en/index>.** Docs (8-bit/4-bit in Hugging Face). Ch. 2.2.
 - **llama.cpp and GGUF — <https://github.com/ggml-org/llama.cpp>.** Project (local inference + quantization format). Ch. 2.2.
 - **MLC LLM — <https://llm.mlc.ai/>.** Docs (cross-hardware inference).
+- **Hugging Face — *Transformers: Quantization overview* — <https://huggingface.co/docs/transformers/quantization/overview>.** Current backends (GPT-QModel, AutoAWQ, NVFP4). Ch. 2.2.
+- **Hugging Face — *TRL: PEFT integration* — <https://huggingface.co/docs/trl/peft_integration>.** LoRA adapters in SFT, DPO and GRPO; DPO reference without a second model. Ch. 7.6.
 
 ### 📜 Official technical blogs
 
@@ -108,6 +116,8 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **Anthropic — *Code execution with MCP* — <https://www.anthropic.com/engineering/code-execution-with-mcp>.** Ch. 4.10.
 - **Anthropic — *Measuring AI agent autonomy in practice* — <https://www.anthropic.com/news/measuring-agent-autonomy>.** Ch. 3.2.
 - **OpenAI Cookbook — *Prompt Caching 201* — <https://developers.openai.com/cookbook/examples/prompt_caching_201>.** Ch. 2.3.
+- **Thinking Machines — *LoRA Without Regret* — <https://thinkingmachines.ai/blog/lora/>.** LoRA matches full FT on small/medium datasets and in RL; all layers; 10× LR. Ch. 7.6.
+- **Thinking Machines — *On-Policy Distillation* — <https://thinkingmachines.ai/blog/on-policy-distillation/>.** Mid-training on internal documents and behavior restoration. Ch. 7.6.
 - **Modular (LLM Inference Handbook, formerly BentoML) — *Prefill–decode disaggregation* — <https://handbook.modular.com/inference-optimization/prefill-decode-disaggregation/>.** Ch. 2.1, 6.3.
 
 ---
@@ -120,6 +130,21 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **Malkov & Yashunin — *Efficient and robust approximate nearest neighbor search using HNSW* (TPAMI 2018).** Paper — <https://arxiv.org/abs/1603.09320>. Ch. 2.7, 2.8.
 - **Lewis et al. — *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks* (NeurIPS 2020).** Paper — <https://arxiv.org/abs/2005.11401>. Ch. 2.6.
 - **Edge et al. (Microsoft Research) — *From Local to Global: A Graph RAG Approach to Query-Focused Summarization*.** Paper — <https://arxiv.org/abs/2404.16130>. Ch. 2.9.
+- **Gao, Ma, Lin & Callan — *Precise Zero-Shot Dense Retrieval without Relevance Labels* (HyDE; ACL 2023).** Paper — <https://arxiv.org/abs/2212.10496>. Ch. 2.7.
+- **Wang, Yang & Wei — *Query2doc: Query Expansion with Large Language Models* (EMNLP 2023).** Paper — <https://arxiv.org/abs/2303.07678>. Ch. 2.7.
+- **Ma et al. — *Query Rewriting for Retrieval-Augmented Large Language Models* (EMNLP 2023).** Paper — <https://arxiv.org/abs/2305.14283>. Ch. 2.7.
+- **Wang et al. — *Searching for Best Practices in Retrieval-Augmented Generation* (2024).** Paper — <https://arxiv.org/abs/2407.01219>. Comparison of HyDE, hybrid and rewriting with a strong embedder. Ch. 2.7.
+- **Yang et al. — *The Geometry of Queries: Query-Based Innovations in Retrieval-Augmented Generation* (2024–2025).** Paper — <https://arxiv.org/abs/2407.18044>. HyDE in clinical QA without significant gain. Ch. 2.7.
+- **Santhanam et al. — *ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction* (NAACL 2022).** Paper — <https://arxiv.org/abs/2112.01488>. Ch. 2.7.
+- **Faysse et al. — *ColPali: Efficient Document Retrieval with Vision Language Models* (ICLR 2025).** Paper — <https://arxiv.org/abs/2407.01449>. Ch. 2.7.
+- **Formal et al. — *SPLADE v2: Sparse Lexical and Expansion Model for Information Retrieval* (2021).** Paper — <https://arxiv.org/abs/2109.10086>. Ch. 2.7.
+- **Günther et al. — *Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models* (2024–2025).** Paper — <https://arxiv.org/abs/2409.04701>. Ch. 2.7.
+- **Qu, Tu & Bao — *Is Semantic Chunking Worth the Computational Cost?* (2024).** Paper — <https://arxiv.org/abs/2410.13070>. Ch. 2.7.
+- **Enevoldsen et al. — *MMTEB: Massive Multilingual Text Embedding Benchmark* (2025).** Paper — <https://arxiv.org/abs/2502.13595>. Ch. 2.7.
+- **Li et al. — *Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach* (Self-Route; EMNLP 2024 Industry).** Paper — <https://arxiv.org/abs/2407.16833>. Ch. 2.10.
+- **Li et al. — *LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs* (ICML 2025).** Paper — <https://arxiv.org/abs/2502.09977>. Ch. 2.10.
+- **Li, Cao, Ma & Sun — *Long Context vs. RAG for LLMs: An Evaluation and Revisits* (2024).** Paper — <https://arxiv.org/abs/2501.01880>. Ch. 2.10.
+- **Liu et al. — *Lost in the Middle: How Language Models Use Long Contexts* (TACL 2023).** Paper — <https://arxiv.org/abs/2307.03172>. Ch. 2.10.
 
 ### 📘 Official documentation
 
@@ -143,6 +168,8 @@ Bibliography organized by theme. Each entry includes, when applicable:
 ### 📜 Blogs / GraphRAG
 
 - **Microsoft GraphRAG — <https://microsoft.github.io/graphrag/>.** Ch. 2.9.
+- **Microsoft Research — *LazyGraphRAG: Setting a new standard for quality and cost* — <https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/>.** Indexing at 0.1% of the cost; research proposal. Ch. 2.9.
+- **Anthropic — *Introducing Contextual Retrieval* — <https://www.anthropic.com/news/contextual-retrieval>.** Per-chunk context at indexing time; ~200k-token rule of thumb. Ch. 2.7, 2.10.
 - **Neo4j GraphRAG (Python) — <https://neo4j.com/docs/neo4j-graphrag-python/current/>.** Ch. 2.9.
 - **Google Cloud — *GraphRAG with Spanner Graph* — <https://docs.cloud.google.com/architecture/gen-ai-graphrag-spanner>.** Ch. 2.9.
 - **Toloka — *RAG evaluation* — <https://toloka.ai/blog/rag-evaluation-a-technical-guide-to-measuring-retrieval-augmented-generation/>.** Ch. 2.6.
@@ -164,6 +191,7 @@ Bibliography organized by theme. Each entry includes, when applicable:
 
 - **vLLM — <https://docs.vllm.ai/en/latest/>.** Docs (PagedAttention, continuous batching, prefix caching). Ch. 6.3.
 - **vLLM — *Architecture overview* — <https://docs.vllm.ai/en/latest/design/arch_overview.html>.** Ch. 6.3.
+- **NVIDIA — *Introducing NVFP4 for Efficient and Accurate Low-Precision Inference* — <https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/>.** Block-scaled FP4 format (Blackwell). Ch. 2.2.
 - **NVIDIA TensorRT-LLM — <https://nvidia.github.io/TensorRT-LLM/>.** Docs (in-flight batching, paged KV cache). Ch. 6.3.
 - **NVIDIA Triton Inference Server — <https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/>.** Docs. Ch. 1.8.
 - **Hugging Face TGI — <https://huggingface.co/docs/text-generation-inference>.** Docs. Ch. 6.3.
@@ -181,6 +209,13 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **MCP — Authorization (2026-07-28 revision) — <https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization>.** Spec. Ch. 4.8.
 - **MCP — Tools spec (2026-07-28) — <https://modelcontextprotocol.io/specification/2026-07-28/server/tools>.** Spec. Ch. 3.5.
 - **MCP — Security best practices — <https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices>.** Ch. 3.5, 4.
+- **MCP — *Specification* (current revision 2026-07-28; checked on 2026-10-25) — <https://modelcontextprotocol.io/specification/latest>.** Spec. Ch. 3.5.
+- **MCP — *Key Changes — 2026-07-28* — <https://modelcontextprotocol.io/specification/2026-07-28/changelog>.** Stateless protocol; Roots, Sampling and Logging deprecated; Tasks as an extension. Ch. 3.5.
+- **MCP — *The 2026-07-28 Specification* (release blog) — <https://blog.modelcontextprotocol.io/posts/2026-07-28/>.** Ch. 3.5.
+- **MCP — *Registry* (preview) — <https://github.com/modelcontextprotocol/registry>.** API v0.1 frozen in Oct/2025; no GA as of the check. Ch. 3.5.
+- **Anthropic — *Donating the Model Context Protocol and establishing the Agentic AI Foundation* — <https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation>.** Governance (AAIF/Linux Foundation, 2025-12-09). Ch. 3.5.
+- **AGENTS.md — <https://agents.md/>.** File convention for coding agents, governed by the AAIF. Ch. 3.5.
+- **Agent Skills — *Specification* — <https://agentskills.io/specification>.** Open `SKILL.md` format. Ch. 3.5.
 - **MCP — Security Best Practices (2026-07-28) — <https://modelcontextprotocol.io/specification/2026-07-28/basic/security_best_practices>.** Ch. 3.5, 4.8.
 
 ### 🤝 A2A - Agent2Agent
@@ -234,6 +269,7 @@ Maturity: 1.0 spec published in March 2026 (v1.0.0, 2026-03-12) and project tran
 - **NIST — alternative publication of the GenAI Profile — <https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence>.**
 - **MITRE ATLAS — <https://atlas.mitre.org/>.** Threat catalog. Ch. 4.2.
 - **Microsoft — *STRIDE Threat Model* (tool and vocabulary) — <https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats>.** Ch. 4.2.
+- **OWASP GenAI Security Project — *OWASP Top 10 for Agentic Applications 2026* — <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/>.** Published 2025-12-09. Ch. 4.2, 4.3.
 
 ### 🧰 Policy engines (policy-as-code)
 
@@ -264,6 +300,9 @@ Maturity: 1.0 spec published in March 2026 (v1.0.0, 2026-03-12) and project tran
 - **Greshake et al. — *Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection* (2023).** Paper — <https://arxiv.org/abs/2302.12173>. Ch. 4.3.
 - **Anthropic — *Reduce prompt injection* — <https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-prompt-injection>.** Ch. 4.3.
 - **Simon Willison — *Prompt injection* series — <https://simonwillison.net/series/prompt-injection/>.** Ch. 4.3 (vocabulary and cases).
+- **Debenedetti et al. — *Defeating Prompt Injections by Design* (CaMeL; 2025).** Paper — <https://arxiv.org/abs/2503.18813>. Provable security on 77% of AgentDojo tasks vs. 84% without defense; ~2.8× tokens. Ch. 4.3.
+- **Beurer-Kellner et al. — *Design Patterns for Securing LLM Agents against Prompt Injections* (2025).** Paper — <https://arxiv.org/abs/2506.08837>. Six architectural patterns. Ch. 4.3.
+- **Meta AI — *Agents Rule of Two: A Practical Approach to AI Agent Security* — <https://ai.meta.com/blog/practical-ai-agent-security/>.** Ch. 4.3.
 
 ---
 
@@ -301,6 +340,12 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **OpenTelemetry — *GenAI semantic conventions* — <https://opentelemetry.io/docs/specs/semconv/gen-ai/>.** Ch. 2.12, 5.2, 5.3.
 - **OpenTelemetry — *GenAI spans* — <https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/>.**
 - **OpenTelemetry — *GenAI agent spans* — <https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/>.**
+- **OpenTelemetry — *Semantic Conventions for Generative AI* (`semantic-conventions-genai` repository) — <https://github.com/open-telemetry/semantic-conventions-genai>.** Development status; own repository since Jun/2026. Ch. 2.12, 5.2, 5.3.
+- **OpenTelemetry — *GenAI client inference span* — <https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/client-inference.md>.** `gen_ai.*`; message content opt-in. Ch. 5.3.
+- **OpenTelemetry — *GenAI agent spans* (current repository) — <https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md>.** `invoke_agent`, `execute_tool`. Ch. 5.3.
+- **OpenTelemetry — *Semantic conventions for MCP* — <https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/mcp.md>.** `mcp.*`; trace context in `_meta`. Ch. 5.3.
+- **OpenTelemetry — *semantic-conventions v1.37.0* — <https://github.com/open-telemetry/semantic-conventions/releases/tag/v1.37.0>.** `gen_ai.system` → `gen_ai.provider.name`; per-message events deprecated (Aug/2025). Ch. 5.3.
+- **OpenTelemetry — *semantic-conventions v1.42.0* — <https://github.com/open-telemetry/semantic-conventions/releases/tag/v1.42.0>.** Migration of the GenAI conventions to their own repository (Jun/2026). Ch. 5.3.
 - **Langfuse — <https://langfuse.com/docs>.** Open-source observability for LLM/agents (further reading).
 - **Phoenix / Arize — <https://docs.arize.com/phoenix>.** Open-source (further reading).
 - **Helicone — <https://docs.helicone.ai/>.** Observability for LLMs (further reading).
@@ -328,6 +373,11 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **FinOps Foundation — *FinOps for AI* — <https://www.finops.org/wg/finops-for-ai/>.** Working group, recent material. Ch. 6.5.
 - **OpenAI — *Latency optimization* — <https://developers.openai.com/api/docs/guides/latency-optimization>.**
 - **Anthropic — *Prompt caching* — <https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching>.**
+- **Anthropic — *Batch processing* (Message Batches API) — <https://platform.claude.com/docs/en/docs/build-with-claude/batch-processing>.** −50%; 24-h window. Ch. 6.1, 6.4.
+- **OpenAI — *Batch API* — <https://developers.openai.com/api/docs/guides/batch>.** −50%; 24-h window. Ch. 6.1, 6.4.
+- **Google — *Gemini API: Context caching* — <https://ai.google.dev/gemini-api/docs/caching>.** Implicit and explicit caching. Ch. 6.1, 6.4.
+- **Google — *Gemini API: Pricing* — <https://ai.google.dev/gemini-api/docs/pricing>.** Cache reads at 10% of input; hourly storage. Ch. 6.1, 6.4.
+- **Google — *Gemini API: Batch Mode* — <https://ai.google.dev/gemini-api/docs/batch-mode>.** −50%. Ch. 6.1, 6.4.
 
 ---
 
@@ -343,6 +393,9 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **Ragas — Context Precision — <https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_precision/>.**
 - **Zheng et al. — *Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena* (2023).** Paper — <https://arxiv.org/abs/2306.05685>. Ch. 2.11, 5.4.
 - **Liu et al. — *G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment* (2023).** Paper — <https://arxiv.org/abs/2303.16634>. Ch. 2.11.
+- **Miller — *Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations* (2024).** Paper — <https://arxiv.org/abs/2411.00640>. Clustered standard errors; paired difference; ~1,000 items for 3 p.p. Ch. 1.3.
+- **Bowyer, Aitchison & Ivanova — *Position: Don't Use the CLT in LLM Evals With Fewer Than a Few Hundred Datapoints* (ICML 2025).** Paper — <https://arxiv.org/abs/2503.01747>. Wilson/paired Bayesian intervals on small samples. Ch. 1.3.
+- **Wasserstein & Lazar — *The ASA's Statement on p-Values: Context, Process, and Purpose* (The American Statistician, 2016).** Article — <https://pmc.ncbi.nlm.nih.gov/articles/PMC5088632>. Six principles on p-values. Ch. 1.3.
 
 ---
 
