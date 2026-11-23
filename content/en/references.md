@@ -449,7 +449,7 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **Lambert et al. — *Tülu 3: Pushing Frontiers in Open Language Model Post-Training* (2024).** Paper — <https://arxiv.org/abs/2411.15124>. SFT -> DPO -> RLVR recipe; 8-gram decontamination; "unseen" split. Ch. 7.8.
 - **Grattafiori et al. — *The Llama 3 Herd of Models* (2024).** Paper — <https://arxiv.org/abs/2407.21783>. Six SFT -> DPO rounds; rejection sampling; DPO preferred over PPO on cost. Ch. 7.8.
 - **Yang et al. — *Qwen3 Technical Report* (2025).** Paper — <https://arxiv.org/abs/2505.09388>. Cold start -> reasoning RL -> mode fusion -> general RL. Ch. 7.8.
-- **DeepSeek-AI — *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning* (Nature 2025).** Paper — <https://arxiv.org/abs/2501.12948>. Pure RL with rule-based rewards; neural reward model "susceptible to reward hacking". Ch. 7.8.
+- **DeepSeek-AI — *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning* (arXiv 2025; published in Nature 645, 2025, as *DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning*).** Paper — <https://arxiv.org/abs/2501.12948>. Pure RL with rule-based rewards; neural reward model "susceptible to reward hacking". Ch. 7.8.
 - **OLMo Team — *2 OLMo 2 Furious* (2025).** Paper — <https://arxiv.org/abs/2501.00656>. Operational definition of mid-training. Ch. 7.8.
 - **Ouyang et al. — *Training language models to follow instructions with human feedback* (NeurIPS 2022).** Paper — <https://arxiv.org/abs/2203.02155>. Classic RLHF (InstructGPT): SFT, reward model, RL. Ch. 7.8.
 - **Rafailov et al. — *Direct Preference Optimization: Your Language Model is Secretly a Reward Model* (NeurIPS 2023).** Paper — <https://arxiv.org/abs/2305.18290>. The DPO loss; reference and β. Ch. 7.6, 7.8.
@@ -462,15 +462,17 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **Xu et al. — *WizardLM: Empowering Large Language Models to Follow Complex Instructions* (Evol-Instruct) (2023).** Paper — <https://arxiv.org/abs/2304.12244>. Progressively harder instructions. Ch. 7.8.
 - **Xu et al. — *Magpie: Alignment Data Synthesis from Scratch by Prompting Aligned LLMs with Nothing* (2024).** Paper — <https://arxiv.org/abs/2406.08464>. Synthesis from the pre-query template. Ch. 7.8.
 - **NVIDIA — *Nemotron-4 340B Technical Report* (2024).** Paper — <https://arxiv.org/abs/2406.11704>. More than 98% synthetic alignment data. Ch. 7.8.
-- **Shumailov et al. — *AI models collapse when trained on recursively generated data* (Nature 2024).** Paper — <https://arxiv.org/abs/2305.17493>. Model collapse under recursive training. Ch. 7.8.
+- **Shumailov et al. — *AI models collapse when trained on recursively generated data* (Nature 2024; arXiv preprint titled *The Curse of Recursion: Training on Generated Data Makes Models Forget*).** Paper — <https://arxiv.org/abs/2305.17493>. Model collapse under recursive training. Ch. 7.8.
 - **Gerstgrasser et al. — *Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data* (2024).** Paper — <https://arxiv.org/abs/2404.01413>. Accumulation avoids collapse; replacement causes it. Ch. 7.8.
+- **Dohmatob et al. — *Strong Model Collapse* (ICLR 2025).** Paper — <https://arxiv.org/abs/2410.04840>. Even a small fraction of synthetic data can keep more data from improving the model. Ch. 7.8.
 - **OpenAI — *GPT-4 Technical Report* (2023).** Paper — <https://arxiv.org/abs/2303.08774>. Decontamination by 50-character substrings. Ch. 7.8.
 - **Longpre et al. — *The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI* (2023).** Paper — <https://arxiv.org/abs/2310.16787>. Licenses omitted in 70%+ of datasets on hubs. Ch. 7.8.
 
 ### 📘 Official documentation
 
-- **Hugging Face — *TRL: SFT Trainer* (v1.16.0) — <https://huggingface.co/docs/trl/sft_trainer>.** Loss masks (`assistant_only_loss`, `completion_only_loss`); datasets with `tools`. Ch. 7.8.
-- **Hugging Face — *TRL: DPO Trainer* (v1.16.0) — <https://huggingface.co/docs/trl/dpo_trainer>.** `prompt/chosen/rejected` format; implicit reference; `precompute_ref_log_probs`. Ch. 7.8.
+- **Hugging Face — *TRL: SFT Trainer* (v1.16.0) — <https://huggingface.co/docs/trl/v1.16.0/en/sft_trainer>.** Loss masks (`assistant_only_loss`, `completion_only_loss`); datasets with `tools`. Ch. 7.8.
+- **Hugging Face — *TRL: DPO Trainer* (v1.16.0) — <https://huggingface.co/docs/trl/v1.16.0/en/dpo_trainer>.** `prompt/chosen/rejected` format; implicit reference; `precompute_ref_log_probs`. Ch. 7.8.
+- **Hugging Face — *TRL: LoRA Without Regret* (v1.16.0) — <https://huggingface.co/docs/trl/v1.16.0/en/lora_without_regret>.** Reproduction of the post in TRL; rank 256 recommended for SFT. Ch. 7.8.
 - **Hugging Face — *Hub: Dataset Cards* — <https://huggingface.co/docs/hub/datasets-cards>.** Dataset card template (YAML `license`, `language`, tags). Ch. 7.8.
 
 ### 📜 Technical blogs
@@ -481,7 +483,7 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 
 - **Anthropic — *Commercial Terms of Service* (effective 2025-06-17) — <https://www.anthropic.com/legal/commercial-terms>.** Prohibits using the services to train competing models. Ch. 7.8.
 - **Anthropic — *Consumer Terms of Service* (effective 2025-10-08) — <https://www.anthropic.com/legal/consumer-terms>.** Equivalent clause for the consumer product. Ch. 7.8.
-- **Google — *Gemini API Additional Terms of Service* (effective 2026-03-23) — <https://ai.google.dev/gemini-api/terms>.** Prohibits using the services to develop competing models. Ch. 7.8.
+- **Google — *Gemini API Additional Terms of Service* (effective 2026-03-23) — <https://aistudio.google.com/docs/terms>.** Prohibits using the services to develop competing models. Ch. 7.8.
 
 ### 🤖 Agent evaluation
 
