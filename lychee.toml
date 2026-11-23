@@ -21,6 +21,8 @@ exclude = [
   "^https://www\\.ntia\\.gov",
   # Milvus docs return a 302 redirect loop to bots; valid in a browser
   "^https://milvus\\.io",
+  # JAMA Network answers bots with a Cloudflare challenge (HTTP 403); the article is valid
+  "^https://jamanetwork\\.com",
 ]
 
 # BOOK.md is a transitional monolithic artifact (superseded by content/); not link-checked.
