@@ -489,11 +489,21 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 
 - **Jimenez et al. — *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* (ICLR 2024).** Paper — <https://arxiv.org/abs/2310.06770>. Benchmark of real issues in Python repositories; basis for SWE-bench Verified. Ch. 5.7.
 - **Princeton NLP / OpenAI — *SWE-bench Verified* (dataset card, 2024).** Dataset — <https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified>. Subset of 500 instances validated by human review. Ch. 5.7.
+- **Yu et al. — *UTBoost: Rigorous Evaluation of Coding Agents on SWE-Bench* (ACL 2025).** Paper — <https://arxiv.org/abs/2506.09289>. Insufficient test cases in SWE-bench; the corrections affect 24.4% of the SWE-bench Verified leaderboard entries, with 11 ranking changes. Ch. 5.7.
+- **OpenAI — *Why SWE-bench Verified no longer measures frontier coding capabilities* (2026).** Technical blog — <https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/>. OpenAI stops reporting SWE-bench Verified: contamination and tests that reject correct solutions in at least 59.4% of the 138 audited problems. Ch. 5.7.
 - **Merrill et al. — *Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces* (ICLR 2026).** Paper — <https://arxiv.org/abs/2601.11868>. Task verification process (oracle, no-op, auditors, adversarial agent); evaluation with ≥5 runs per agent-model pair; tests copied into the agent's container (version 2.0). Ch. 5.7.
 - **Harbor — *Tasks: overview* — <https://docs.harborframework.com/tasks/overview>.** Docs (task format: `instruction.md`, `task.toml`, `environment/`, `solution/`, `tests/`). Ch. 5.7.
+- **Harbor — *Tasks: separate verifier* — <https://docs.harborframework.com/tasks/separate-verifier>.** Docs (verifier in an environment separate from the agent's; artifacts copied and sanitized before verification). Ch. 5.7.
+- **Harbor — *Cracking down on reward hacking* (2026) — <https://docs.harborframework.com/news/reward-hacking>.** Announcement (in a shared environment the agent could write its own reward file; separate verifier for new tasks; submitted code run as an unprivileged user; several reference solutions so the verifier does not fit only one). Ch. 5.7.
+- **Terminal-Bench — *Terminal-Bench 2.1* (2026) — <https://www.tbench.ai/news/terminal-bench-2-1>.** Release note (fixes to 28 of the 89 tasks in 2.0). Ch. 5.7.
+- **Terminal-Bench — *Terminal-Bench 3.0* (2026) — <https://www.tbench.ai/news/terminal-bench-3-0>.** Release note (74 tasks in the first release; CI/CD, semantic versioning and result migrations; agent container separated from the verifier container, which receives the agent's artifacts). Ch. 5.7.
 - **Terminal-Bench — *Terminal-Bench 4.0* (2026) — <https://www.tbench.ai/news/terminal-bench-4-0>.** Release note (continuous benchmark with semantic versioning; tasks removed and fixed between versions). Ch. 5.7.
 - **Terminal-Bench — *Terminal-Bench 4.1* (2026) — <https://www.tbench.ai/news/terminal-bench-4-1>.** Release note (hardened verifiers; 4.0 results regraded on stored artifacts). Ch. 5.7.
+- **Terminal-Bench — *Leaderboard Integrity Update* (2026) — <https://www.tbench.ai/news/leaderboard-integrity-update>.** Announcement (a trial with reward hacking gets a reward of 0; a submission with cheating is taken down from the leaderboard). Ch. 5.7.
 - **Yao et al. — *τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains* (2024).** Paper — <https://arxiv.org/abs/2406.12045>. Verification by database state and by required information in the reply; pass^k metric. Ch. 5.7.
+- **Sierra Research — *τ-bench* (repository) — <https://github.com/sierra-research/tau-bench>.** Repository of the 2024 benchmark; warns that its tasks are no longer updated and points to τ³-bench. Ch. 5.7.
+- **Sierra Research — *τ-bench: Task Schema and Evaluation* (`tau2-bench` repository) — <https://github.com/sierra-research/tau2-bench/blob/main/docs/evaluation.md>.** Reward as the product of its components: by default, database state and communication, without comparing the tool-call trajectory with the reference one. Ch. 5.7.
+- **Sierra Research — *τ-bench: Changelog* (`tau2-bench` repository) — <https://github.com/sierra-research/tau2-bench/blob/main/CHANGELOG.md>.** Version 2.0.0 (2026-10-19): communication checks judged by an LLM by default; scores not comparable with 1.x. Ch. 5.7.
 - **Zhu et al. — *Establishing Best Practices for Building Rigorous Agentic Benchmarks* (2025).** Paper — <https://arxiv.org/abs/2507.02825>. Agentic Benchmark Checklist; task- and outcome-validity defects in mature benchmarks. Ch. 5.7.
 - **Kapoor et al. — *Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation* (ICLR 2026).** Paper — <https://arxiv.org/abs/2510.11977>. Score by model, scaffold and benchmark; cost reported next to accuracy. Ch. 5.7.
 - **Anthropic — *Quantifying infrastructure noise in agentic coding evals* (2026).** Technical blog — <https://www.anthropic.com/engineering/infrastructure-noise>. Gap of 6 p.p. between the most- and least-resourced setups on Terminal-Bench 2.0. Ch. 5.7.
@@ -504,6 +514,7 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 ### 📐 Statistics for evaluation
 
 - **Chen et al. — *Evaluating Large Language Models Trained on Code* (2021).** Paper — <https://arxiv.org/abs/2107.03374>. Unbiased pass@k estimator. Ch. 5.7.
+- **Piaggio et al. — *Reporting of Noninferiority and Equivalence Randomized Trials: Extension of the CONSORT 2010 Statement* (JAMA 2012).** Article — <https://jamanetwork.com/journals/jama/fullarticle/1487502>. Margin Δ stated in advance; non-inferiority judged by the confidence-interval bound against Δ; equivalence when the entire interval lies between −Δ and Δ. Ch. 5.7.
 
 ---
 
