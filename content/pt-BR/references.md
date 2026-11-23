@@ -347,7 +347,7 @@ Postura editorial: comparação neutra. Avaliar licença, providers suportados, 
 - **OpenTelemetry - *semantic-conventions v1.37.0* -<https://github.com/open-telemetry/semantic-conventions/releases/tag/v1.37.0>.** `gen_ai.system` → `gen_ai.provider.name`; eventos por mensagem depreciados (ago/2025). Cap. 5.3.
 - **OpenTelemetry - *semantic-conventions v1.42.0* -<https://github.com/open-telemetry/semantic-conventions/releases/tag/v1.42.0>.** Migração das convenções GenAI para repositório próprio (jun/2026). Cap. 5.3.
 - **Langfuse - <https://langfuse.com/docs>.** Observability open-source para LLM/agents (leitura complementar).
-- **Phoenix / Arize - <https://docs.arize.com/phoenix>.** Open-source (leitura complementar).
+- **Phoenix / Arize - <https://arize.com/docs/phoenix>.** Open-source (leitura complementar).
 - **Helicone - <https://docs.helicone.ai/>.** Observability para LLMs (leitura complementar).
 - **LangSmith - <https://www.langchain.com/langsmith/observability>.** SaaS.
 - **Grafana Tempo - <https://grafana.com/docs/tempo/latest/>.** Backend de traces (com OTel). Cap. 5.2.
