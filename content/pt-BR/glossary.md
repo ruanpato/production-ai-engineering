@@ -46,6 +46,7 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 - **O que é.** Engenharia ao redor do modelo: orquestração, retries, timeouts, fallbacks, policy, observabilidade, evals, sandbox, HITL, auditoria.
 - **Onde aparece.** Em qualquer agente sério em produção.
 - **Relação.** O harness é o produto real. O modelo é apenas um componente.
+- **Nota.** Em avaliação de agentes, o harness do agente também é chamado de *scaffold*; não confundir com o eval harness, a infraestrutura que executa a avaliação (Cap. 5.7).
 
 ### Agent runtime
 

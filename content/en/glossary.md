@@ -46,6 +46,7 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 - **What it is.** The engineering around the model: orchestration, retries, timeouts, fallbacks, policy, observability, evals, sandbox, HITL, auditing.
 - **Where it shows up.** In any serious agent in production.
 - **Relationship.** The harness is the real product. The model is just a component.
+- **Note.** In agent evaluation, the agent's harness is also called a *scaffold*; not to be confused with the eval harness, the infrastructure that runs the evaluation (Ch. 5.7).
 
 ### Agent runtime
 
