@@ -28,6 +28,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · [SemVer](htt
 - Group split definition (Ch. 1.6).
 - Fine-tuning vs knowledge nuance (Ch. 2.2, 2.10) and training-axes table in Ch. 7.6.
 - RLHF/DPO scope paragraph (Ch. 7.6).
+- Technical review of Ch. 5.7 and Ch. 7.8 (pt-BR and en, still `status: review`): attributions and
+  figures corrected against the primary sources (METR reward-hacking report, τ-bench reward, Llama 3
+  and Tülu 3 decontamination, DeepSeek-R1 SFT data, the mid-training experiment also cited in
+  Ch. 7.6); non-inferiority separated from equivalence; verifier isolation, SWE-bench Verified,
+  Terminal-Bench and τ-bench brought up to their 2026 state; LoRA, DPO, chat-template and synthetic
+  data guidance tightened; reference entries and links fixed.
 - OWASP LLM Top 10 mapping moved from the 2023 list to the 2026 edition (Ch. 4.2, references).
 - A2A dates and 1.0 version (Ch. 3.5, glossary, references).
 - MCP authorization flow updated to the 2026-07-28 revision; dated spec links (Ch. 4.8, references).
