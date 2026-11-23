@@ -274,3 +274,6 @@ Strien
 Thorne
 tokenizados
 Tülu
+# --- termos da página de labs (nov/2026): nomes de organização e de pasta nos links para as PoCs do grupo de estudos ---
+ackermann
+rerank

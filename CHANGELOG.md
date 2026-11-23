@@ -20,6 +20,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · [SemVer](htt
   Agentic Top 10; Ch. 5.3 OpenTelemetry GenAI mapping and maturity note; Ch. 6.1/6.4 token cost
   categories; Ch. 7.6 three independent axes and knowledge table; Ch. 9.2 scope wording; glossary
   and references entries.
+- Labs page (pt-BR and en): the examples remain planned; new pointer to runnable PoCs on three of
+  their themes in the study-group repository (in Portuguese, outside the handbook, own license).
 
 ### Fixed
 
