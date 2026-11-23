@@ -969,7 +969,7 @@ Auxiliary concepts have a shorter definition. Entries are organized alphabetical
 
 - **What it is.** The component that decides, independently of the agent, whether a task was solved: tests, a target-state comparator or, where there is no verifiable state, a calibrated judge. It produces a numeric result.
 - **Where it shows up.** Agent benchmarks, release gates, reward in training with verifiable RL (Ch. 5.4, 5.7).
-- **Risks.** A verifier that accepts the initial state or an empty answer, that is readable or editable by the agent, or that covers only part of the requirement produces inflated scores. It must be tested with positive, no-op, shortcut and adversarial controls.
+- **Risks.** A verifier that accepts the initial state or an empty answer, that is readable or editable by the agent, or that covers only part of the requirement produces inflated scores; an over-strict verifier rejects correct solutions. It must be tested with positive, alternative-solution, no-op, shortcut and adversarial controls.
 
 ### vLLM
 

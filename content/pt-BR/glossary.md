@@ -969,7 +969,7 @@ Conceitos auxiliares têm definição mais curta. Entradas estão organizadas al
 
 - **O que é.** Componente que decide, de forma independente do agente, se uma tarefa foi resolvida: testes, comparador de estado-alvo ou, onde não há estado verificável, juiz calibrado. Produz um resultado numérico.
 - **Onde aparece.** Benchmarks de agentes, gates de release, recompensa em treinamento com RL verificável (Cap. 5.4, 5.7).
-- **Riscos.** Verificador que aceita o estado inicial ou a resposta vazia, que é legível ou editável pelo agente ou que cobre só parte do requisito produz scores inflados. Precisa ser testado com controles positivo, no-op, atalho e adversarial.
+- **Riscos.** Verificador que aceita o estado inicial ou a resposta vazia, que é legível ou editável pelo agente ou que cobre só parte do requisito produz scores inflados; verificador estrito demais rejeita soluções corretas. Precisa ser testado com controles positivo, de solução alternativa, no-op, atalho e adversarial.
 
 ### vLLM
 
