@@ -116,7 +116,7 @@ Bibliografia organizada por tema. Cada entrada inclui, quando aplicável:
 - **Anthropic - *Code execution with MCP* -<https://www.anthropic.com/engineering/code-execution-with-mcp>.** Cap. 4.10.
 - **Anthropic - *Measuring AI agent autonomy in practice* -<https://www.anthropic.com/news/measuring-agent-autonomy>.** Cap. 3.2.
 - **OpenAI Cookbook - *Prompt Caching 201* -<https://developers.openai.com/cookbook/examples/prompt_caching_201>.** Cap. 2.3.
-- **Thinking Machines - *LoRA Without Regret* -<https://thinkingmachines.ai/blog/lora/>.** LoRA iguala full FT em datasets pequenos/médios e em RL; todas as camadas; LR 10×. Cap. 7.6, 7.8.
+- **Thinking Machines - *LoRA Without Regret* -<https://thinkingmachines.ai/blog/lora/>.** Em datasets pequenos/médios e em RL, LoRA tende a igualar full FT quando aplicado a todas as camadas e sem restrição de capacidade; fica atrás quando o dataset excede a capacidade do adaptador; LR ~10× a do full FT, regra empírica sem explicação teórica. Cap. 7.6, 7.8.
 - **Thinking Machines - *On-Policy Distillation* -<https://thinkingmachines.ai/blog/on-policy-distillation/>.** Mid-training em documentos internos e restauração de comportamento. Cap. 7.6, 7.8.
 - **Modular (LLM Inference Handbook, antes BentoML) - *Prefill–decode disaggregation* - <https://handbook.modular.com/inference-optimization/prefill-decode-disaggregation/>.** Cap. 2.1, 6.3.
 
@@ -463,7 +463,7 @@ Postura editorial: comparação neutra. Avaliar licença, providers suportados, 
 - **Xu et al. - *Magpie: Alignment Data Synthesis from Scratch by Prompting Aligned LLMs with Nothing* (2024).** Paper - <https://arxiv.org/abs/2406.08464>. Síntese a partir do template de pré-consulta. Cap. 7.8.
 - **NVIDIA - *Nemotron-4 340B Technical Report* (2024).** Paper - <https://arxiv.org/abs/2406.11704>. Mais de 98% dos dados de alinhamento sintéticos. Cap. 7.8.
 - **Shumailov et al. - *AI models collapse when trained on recursively generated data* (Nature 2024; preprint no arXiv com o título *The Curse of Recursion: Training on Generated Data Makes Models Forget*).** Paper - <https://arxiv.org/abs/2305.17493>. Colapso de modelo sob treino recursivo. Cap. 7.8.
-- **Gerstgrasser et al. - *Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data* (2024).** Paper - <https://arxiv.org/abs/2404.01413>. Acumulação evita o colapso; substituição causa. Cap. 7.8.
+- **Gerstgrasser et al. - *Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data* (2024).** Paper - <https://arxiv.org/abs/2404.01413>. Com acumulação (sintéticos somados aos reais originais), o erro de teste fica limitado em vez de crescer a cada geração: prova para modelos lineares e experimentos com LMs pequenos e difusão; nos VAEs ainda sobe, mais devagar, e a diversidade cai. Com substituição, tende ao colapso. Cap. 7.8.
 - **Dohmatob et al. - *Strong Model Collapse* (ICLR 2025).** Paper - <https://arxiv.org/abs/2410.04840>. Mesmo uma fração pequena de dados sintéticos pode impedir que mais dados melhorem o modelo. Cap. 7.8.
 - **OpenAI - *GPT-4 Technical Report* (2023).** Paper - <https://arxiv.org/abs/2303.08774>. Descontaminação por substrings de 50 caracteres. Cap. 7.8.
 - **Longpre et al. - *The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI* (2023).** Paper - <https://arxiv.org/abs/2310.16787>. Licenças omitidas em 70%+ dos datasets em hubs. Cap. 7.8.

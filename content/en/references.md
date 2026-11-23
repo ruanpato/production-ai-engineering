@@ -116,7 +116,7 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **Anthropic — *Code execution with MCP* — <https://www.anthropic.com/engineering/code-execution-with-mcp>.** Ch. 4.10.
 - **Anthropic — *Measuring AI agent autonomy in practice* — <https://www.anthropic.com/news/measuring-agent-autonomy>.** Ch. 3.2.
 - **OpenAI Cookbook — *Prompt Caching 201* — <https://developers.openai.com/cookbook/examples/prompt_caching_201>.** Ch. 2.3.
-- **Thinking Machines — *LoRA Without Regret* — <https://thinkingmachines.ai/blog/lora/>.** LoRA matches full FT on small/medium datasets and in RL; all layers; 10× LR. Ch. 7.6, 7.8.
+- **Thinking Machines — *LoRA Without Regret* — <https://thinkingmachines.ai/blog/lora/>.** On small/medium datasets and in RL, LoRA tends to match full FT when applied to all layers and not capacity-constrained; it falls behind when the dataset exceeds the adapter's capacity; LR ~10× that of full FT, an empirical rule with no theoretical explanation. Ch. 7.6, 7.8.
 - **Thinking Machines — *On-Policy Distillation* — <https://thinkingmachines.ai/blog/on-policy-distillation/>.** Mid-training on internal documents and behavior restoration. Ch. 7.6, 7.8.
 - **Modular (LLM Inference Handbook, formerly BentoML) — *Prefill–decode disaggregation* — <https://handbook.modular.com/inference-optimization/prefill-decode-disaggregation/>.** Ch. 2.1, 6.3.
 
@@ -463,7 +463,7 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **Xu et al. — *Magpie: Alignment Data Synthesis from Scratch by Prompting Aligned LLMs with Nothing* (2024).** Paper — <https://arxiv.org/abs/2406.08464>. Synthesis from the pre-query template. Ch. 7.8.
 - **NVIDIA — *Nemotron-4 340B Technical Report* (2024).** Paper — <https://arxiv.org/abs/2406.11704>. More than 98% synthetic alignment data. Ch. 7.8.
 - **Shumailov et al. — *AI models collapse when trained on recursively generated data* (Nature 2024; arXiv preprint titled *The Curse of Recursion: Training on Generated Data Makes Models Forget*).** Paper — <https://arxiv.org/abs/2305.17493>. Model collapse under recursive training. Ch. 7.8.
-- **Gerstgrasser et al. — *Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data* (2024).** Paper — <https://arxiv.org/abs/2404.01413>. Accumulation avoids collapse; replacement causes it. Ch. 7.8.
+- **Gerstgrasser et al. — *Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data* (2024).** Paper — <https://arxiv.org/abs/2404.01413>. With accumulation (synthetic data added to the original real data), test error stays bounded instead of growing with each generation: a proof for linear models and experiments with small LMs and diffusion; in the VAEs it still rises, more slowly, and diversity drops. With replacement, it tends towards collapse. Ch. 7.8.
 - **Dohmatob et al. — *Strong Model Collapse* (ICLR 2025).** Paper — <https://arxiv.org/abs/2410.04840>. Even a small fraction of synthetic data can keep more data from improving the model. Ch. 7.8.
 - **OpenAI — *GPT-4 Technical Report* (2023).** Paper — <https://arxiv.org/abs/2303.08774>. Decontamination by 50-character substrings. Ch. 7.8.
 - **Longpre et al. — *The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI* (2023).** Paper — <https://arxiv.org/abs/2310.16787>. Licenses omitted in 70%+ of datasets on hubs. Ch. 7.8.
