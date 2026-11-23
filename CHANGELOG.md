@@ -33,7 +33,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · [SemVer](htt
   and Tülu 3 decontamination, DeepSeek-R1 SFT data, the mid-training experiment also cited in
   Ch. 7.6); non-inferiority separated from equivalence; verifier isolation, SWE-bench Verified,
   Terminal-Bench and τ-bench brought up to their 2026 state; LoRA, DPO, chat-template and synthetic
-  data guidance tightened; reference entries and links fixed.
+  data guidance tightened; alternative-solution control added to the Ch. 5.7 controls, checklist and
+  glossary; reference entries and links fixed, the sources behind the corrected Ch. 5.7 sentences
+  added to the references and two Ch. 7.8 source summaries toned down to match the corrected text.
 - OWASP LLM Top 10 mapping moved from the 2023 list to the 2026 edition (Ch. 4.2, references).
 - A2A dates and 1.0 version (Ch. 3.5, glossary, references).
 - MCP authorization flow updated to the 2026-07-28 revision; dated spec links (Ch. 4.8, references).
