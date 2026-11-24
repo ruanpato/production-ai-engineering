@@ -256,9 +256,11 @@ Allal
 Cosmopedia
 cpus
 Denison
+Dohmatob
 Ethayarajh
 Gerstgrasser
 Grattafiori
+incentivizes
 Incentivizing
 Kapoor
 Longpre
@@ -266,7 +268,9 @@ Lozhkov
 Meng
 METR
 Nemotron
+Noninferiority
 Ouyang
+Piaggio
 Qwen
 rephrasings
 Shumailov

@@ -116,7 +116,7 @@ Bibliography organized by theme. Each entry includes, when applicable:
 - **Anthropic — *Code execution with MCP* — <https://www.anthropic.com/engineering/code-execution-with-mcp>.** Ch. 4.10.
 - **Anthropic — *Measuring AI agent autonomy in practice* — <https://www.anthropic.com/news/measuring-agent-autonomy>.** Ch. 3.2.
 - **OpenAI Cookbook — *Prompt Caching 201* — <https://developers.openai.com/cookbook/examples/prompt_caching_201>.** Ch. 2.3.
-- **Thinking Machines — *LoRA Without Regret* — <https://thinkingmachines.ai/blog/lora/>.** LoRA matches full FT on small/medium datasets and in RL; all layers; 10× LR. Ch. 7.6, 7.8.
+- **Thinking Machines — *LoRA Without Regret* — <https://thinkingmachines.ai/blog/lora/>.** On small/medium datasets and in RL, LoRA tends to match full FT when applied to all layers and not capacity-constrained; it falls behind when the dataset exceeds the adapter's capacity; LR ~10× that of full FT, an empirical rule with no theoretical explanation. Ch. 7.6, 7.8.
 - **Thinking Machines — *On-Policy Distillation* — <https://thinkingmachines.ai/blog/on-policy-distillation/>.** Mid-training on internal documents and behavior restoration. Ch. 7.6, 7.8.
 - **Modular (LLM Inference Handbook, formerly BentoML) — *Prefill–decode disaggregation* — <https://handbook.modular.com/inference-optimization/prefill-decode-disaggregation/>.** Ch. 2.1, 6.3.
 
@@ -449,7 +449,7 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **Lambert et al. — *Tülu 3: Pushing Frontiers in Open Language Model Post-Training* (2024).** Paper — <https://arxiv.org/abs/2411.15124>. SFT -> DPO -> RLVR recipe; 8-gram decontamination; "unseen" split. Ch. 7.8.
 - **Grattafiori et al. — *The Llama 3 Herd of Models* (2024).** Paper — <https://arxiv.org/abs/2407.21783>. Six SFT -> DPO rounds; rejection sampling; DPO preferred over PPO on cost. Ch. 7.8.
 - **Yang et al. — *Qwen3 Technical Report* (2025).** Paper — <https://arxiv.org/abs/2505.09388>. Cold start -> reasoning RL -> mode fusion -> general RL. Ch. 7.8.
-- **DeepSeek-AI — *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning* (Nature 2025).** Paper — <https://arxiv.org/abs/2501.12948>. Pure RL with rule-based rewards; neural reward model "susceptible to reward hacking". Ch. 7.8.
+- **DeepSeek-AI — *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning* (arXiv 2025; published in Nature 645, 2025, as *DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning*).** Paper — <https://arxiv.org/abs/2501.12948>. Pure RL with rule-based rewards; neural reward model "susceptible to reward hacking". Ch. 7.8.
 - **OLMo Team — *2 OLMo 2 Furious* (2025).** Paper — <https://arxiv.org/abs/2501.00656>. Operational definition of mid-training. Ch. 7.8.
 - **Ouyang et al. — *Training language models to follow instructions with human feedback* (NeurIPS 2022).** Paper — <https://arxiv.org/abs/2203.02155>. Classic RLHF (InstructGPT): SFT, reward model, RL. Ch. 7.8.
 - **Rafailov et al. — *Direct Preference Optimization: Your Language Model is Secretly a Reward Model* (NeurIPS 2023).** Paper — <https://arxiv.org/abs/2305.18290>. The DPO loss; reference and β. Ch. 7.6, 7.8.
@@ -462,15 +462,17 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 - **Xu et al. — *WizardLM: Empowering Large Language Models to Follow Complex Instructions* (Evol-Instruct) (2023).** Paper — <https://arxiv.org/abs/2304.12244>. Progressively harder instructions. Ch. 7.8.
 - **Xu et al. — *Magpie: Alignment Data Synthesis from Scratch by Prompting Aligned LLMs with Nothing* (2024).** Paper — <https://arxiv.org/abs/2406.08464>. Synthesis from the pre-query template. Ch. 7.8.
 - **NVIDIA — *Nemotron-4 340B Technical Report* (2024).** Paper — <https://arxiv.org/abs/2406.11704>. More than 98% synthetic alignment data. Ch. 7.8.
-- **Shumailov et al. — *AI models collapse when trained on recursively generated data* (Nature 2024).** Paper — <https://arxiv.org/abs/2305.17493>. Model collapse under recursive training. Ch. 7.8.
-- **Gerstgrasser et al. — *Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data* (2024).** Paper — <https://arxiv.org/abs/2404.01413>. Accumulation avoids collapse; replacement causes it. Ch. 7.8.
+- **Shumailov et al. — *AI models collapse when trained on recursively generated data* (Nature 2024; arXiv preprint titled *The Curse of Recursion: Training on Generated Data Makes Models Forget*).** Paper — <https://arxiv.org/abs/2305.17493>. Model collapse under recursive training. Ch. 7.8.
+- **Gerstgrasser et al. — *Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data* (2024).** Paper — <https://arxiv.org/abs/2404.01413>. With accumulation (synthetic data added to the original real data), test error stays bounded instead of growing with each generation: a proof for linear models and experiments with small LMs and diffusion; in the VAEs it still rises, more slowly, and diversity drops. With replacement, it tends towards collapse. Ch. 7.8.
+- **Dohmatob et al. — *Strong Model Collapse* (ICLR 2025).** Paper — <https://arxiv.org/abs/2410.04840>. Even a small fraction of synthetic data can keep more data from improving the model. Ch. 7.8.
 - **OpenAI — *GPT-4 Technical Report* (2023).** Paper — <https://arxiv.org/abs/2303.08774>. Decontamination by 50-character substrings. Ch. 7.8.
 - **Longpre et al. — *The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI* (2023).** Paper — <https://arxiv.org/abs/2310.16787>. Licenses omitted in 70%+ of datasets on hubs. Ch. 7.8.
 
 ### 📘 Official documentation
 
-- **Hugging Face — *TRL: SFT Trainer* (v1.16.0) — <https://huggingface.co/docs/trl/sft_trainer>.** Loss masks (`assistant_only_loss`, `completion_only_loss`); datasets with `tools`. Ch. 7.8.
-- **Hugging Face — *TRL: DPO Trainer* (v1.16.0) — <https://huggingface.co/docs/trl/dpo_trainer>.** `prompt/chosen/rejected` format; implicit reference; `precompute_ref_log_probs`. Ch. 7.8.
+- **Hugging Face — *TRL: SFT Trainer* (v1.16.0) — <https://huggingface.co/docs/trl/v1.16.0/en/sft_trainer>.** Loss masks (`assistant_only_loss`, `completion_only_loss`); datasets with `tools`. Ch. 7.8.
+- **Hugging Face — *TRL: DPO Trainer* (v1.16.0) — <https://huggingface.co/docs/trl/v1.16.0/en/dpo_trainer>.** `prompt/chosen/rejected` format; implicit reference; `precompute_ref_log_probs`. Ch. 7.8.
+- **Hugging Face — *TRL: LoRA Without Regret* (v1.16.0) — <https://huggingface.co/docs/trl/v1.16.0/en/lora_without_regret>.** Reproduction of the post in TRL; rank 256 recommended for SFT. Ch. 7.8.
 - **Hugging Face — *Hub: Dataset Cards* — <https://huggingface.co/docs/hub/datasets-cards>.** Dataset card template (YAML `license`, `language`, tags). Ch. 7.8.
 
 ### 📜 Technical blogs
@@ -481,18 +483,30 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 
 - **Anthropic — *Commercial Terms of Service* (effective 2025-06-17) — <https://www.anthropic.com/legal/commercial-terms>.** Prohibits using the services to train competing models. Ch. 7.8.
 - **Anthropic — *Consumer Terms of Service* (effective 2025-10-08) — <https://www.anthropic.com/legal/consumer-terms>.** Equivalent clause for the consumer product. Ch. 7.8.
-- **Google — *Gemini API Additional Terms of Service* (effective 2026-03-23) — <https://ai.google.dev/gemini-api/terms>.** Prohibits using the services to develop competing models. Ch. 7.8.
+- **Google — *Gemini API Additional Terms of Service* (effective 2026-03-23) — <https://aistudio.google.com/docs/terms>.** Prohibits using the services to develop competing models. Ch. 7.8.
 
 ### 🤖 Agent evaluation
 
 - **Jimenez et al. — *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* (ICLR 2024).** Paper — <https://arxiv.org/abs/2310.06770>. Benchmark of real issues in Python repositories; basis for SWE-bench Verified. Ch. 5.7.
-- **Princeton NLP / OpenAI — *SWE-bench Verified* (dataset card, 2024).** Dataset — <https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified>. Subset of 500 instances validated by human review. Ch. 5.7.
-- **Merrill et al. — *Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces* (ICLR 2026).** Paper — <https://arxiv.org/abs/2601.11868>. Task verification process (oracle, no-op, auditors, adversarial agent, ≥5 runs); tests copied in after the agent. Ch. 5.7.
+- **Princeton NLP / OpenAI — *SWE-bench Verified* (dataset card, 2024).** Dataset — <https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified>. Subset of 500 instances validated by human review. Ch. 5.7.
+- **Yu et al. — *UTBoost: Rigorous Evaluation of Coding Agents on SWE-Bench* (ACL 2025).** Paper — <https://arxiv.org/abs/2506.09289>. Insufficient test cases in SWE-bench; the corrections affect 24.4% of the SWE-bench Verified leaderboard entries, with 11 ranking changes. Ch. 5.7.
+- **OpenAI — *Why SWE-bench Verified no longer measures frontier coding capabilities* (2026).** Technical blog — <https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/>. OpenAI stops reporting SWE-bench Verified: contamination and tests that reject correct solutions in at least 59.4% of the 138 audited problems. Ch. 5.7.
+- **Merrill et al. — *Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces* (ICLR 2026).** Paper — <https://arxiv.org/abs/2601.11868>. Task verification process (oracle, no-op, auditors, adversarial agent); evaluation with ≥5 runs per agent-model pair; tests copied into the agent's container (version 2.0). Ch. 5.7.
 - **Harbor — *Tasks: overview* — <https://docs.harborframework.com/tasks/overview>.** Docs (task format: `instruction.md`, `task.toml`, `environment/`, `solution/`, `tests/`). Ch. 5.7.
+- **Harbor — *Tasks: separate verifier* — <https://docs.harborframework.com/tasks/separate-verifier>.** Docs (verifier in an environment separate from the agent's; artifacts copied and sanitized before verification). Ch. 5.7.
+- **Harbor — *Cracking down on reward hacking* (2026) — <https://docs.harborframework.com/news/reward-hacking>.** Announcement (in a shared environment the agent could write its own reward file; separate verifier for new tasks; submitted code run as an unprivileged user; several reference solutions so the verifier does not fit only one). Ch. 5.7.
+- **Terminal-Bench — *Terminal-Bench 2.1* (2026) — <https://www.tbench.ai/news/terminal-bench-2-1>.** Release note (fixes to 28 of the 89 tasks in 2.0). Ch. 5.7.
+- **Terminal-Bench — *Terminal-Bench 3.0* (2026) — <https://www.tbench.ai/news/terminal-bench-3-0>.** Release note (74 tasks in the first release; CI/CD, semantic versioning and result migrations; agent container separated from the verifier container, which receives the agent's artifacts). Ch. 5.7.
 - **Terminal-Bench — *Terminal-Bench 4.0* (2026) — <https://www.tbench.ai/news/terminal-bench-4-0>.** Release note (continuous benchmark with semantic versioning; tasks removed and fixed between versions). Ch. 5.7.
-- **Yao et al. — *τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains* (2024).** Paper — <https://arxiv.org/abs/2406.12045>. Verification by database state; pass^k metric. Ch. 5.7.
+- **Terminal-Bench — *Terminal-Bench 4.1* (2026) — <https://www.tbench.ai/news/terminal-bench-4-1>.** Release note (hardened verifiers; 4.0 results regraded on stored artifacts). Ch. 5.7.
+- **Terminal-Bench — *Leaderboard Integrity Update* (2026) — <https://www.tbench.ai/news/leaderboard-integrity-update>.** Announcement (a trial with reward hacking gets a reward of 0; a submission with cheating is taken down from the leaderboard). Ch. 5.7.
+- **Yao et al. — *τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains* (2024).** Paper — <https://arxiv.org/abs/2406.12045>. Verification by database state and by required information in the reply; pass^k metric. Ch. 5.7.
+- **Sierra Research — *τ-bench* (repository) — <https://github.com/sierra-research/tau-bench>.** Repository of the 2024 benchmark; warns that its tasks are no longer updated and points to τ³-bench. Ch. 5.7.
+- **Sierra Research — *τ-bench: Task Schema and Evaluation* (`tau2-bench` repository) — <https://github.com/sierra-research/tau2-bench/blob/main/docs/evaluation.md>.** Reward as the product of its components: by default, database state and communication, without comparing the tool-call trajectory with the reference one. Ch. 5.7.
+- **Sierra Research — *τ-bench: Changelog* (`tau2-bench` repository) — <https://github.com/sierra-research/tau2-bench/blob/main/CHANGELOG.md>.** Version 2.0.0 (2026-10-19): communication checks judged by an LLM by default; scores not comparable with 1.x. Ch. 5.7.
 - **Zhu et al. — *Establishing Best Practices for Building Rigorous Agentic Benchmarks* (2025).** Paper — <https://arxiv.org/abs/2507.02825>. Agentic Benchmark Checklist; task- and outcome-validity defects in mature benchmarks. Ch. 5.7.
-- **Kapoor et al. — *Holistic Agent Leaderboard (HAL)* (ICLR 2026).** Paper — <https://arxiv.org/abs/2510.11977>. Score as a function of model, scaffold and budget; cost reported next to accuracy. Ch. 5.7.
+- **Kapoor et al. — *Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation* (ICLR 2026).** Paper — <https://arxiv.org/abs/2510.11977>. Score by model, scaffold and benchmark; cost reported next to accuracy. Ch. 5.7.
+- **Anthropic — *Quantifying infrastructure noise in agentic coding evals* (2026).** Technical blog — <https://www.anthropic.com/engineering/infrastructure-noise>. Gap of 6 p.p. between the most- and least-resourced setups on Terminal-Bench 2.0. Ch. 5.7.
 - **METR — *Recent Frontier Models Are Reward Hacking* (2025).** Technical report — <https://metr.org/blog/2025-06-05-recent-reward-hacking>. Reward hacking in evaluation; recommendation to fix the verifier. Ch. 5.7.
 - **Denison et al. — *Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models* (2024).** Paper — <https://arxiv.org/abs/2406.10162>. Generalization from specification gaming to reward tampering. Ch. 5.7.
 - **Baker et al. — *Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation* (2025).** Paper — <https://arxiv.org/abs/2503.11926>. Reasoning monitor; obfuscated cheating when optimizing against the monitor. Ch. 5.7.
@@ -500,6 +514,7 @@ Editorial stance: neutral comparison. Evaluate the license, supported providers,
 ### 📐 Statistics for evaluation
 
 - **Chen et al. — *Evaluating Large Language Models Trained on Code* (2021).** Paper — <https://arxiv.org/abs/2107.03374>. Unbiased pass@k estimator. Ch. 5.7.
+- **Piaggio et al. — *Reporting of Noninferiority and Equivalence Randomized Trials: Extension of the CONSORT 2010 Statement* (JAMA 2012).** Article — <https://jamanetwork.com/journals/jama/fullarticle/1487502>. Margin Δ stated in advance; non-inferiority judged by the confidence-interval bound against Δ; equivalence when the entire interval lies between −Δ and Δ. Ch. 5.7.
 
 ---
 
