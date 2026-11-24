@@ -94,6 +94,16 @@ The first suggested batch for implementation:
 
 Each example, when implemented, must update the matrix with the correct status (`planned` -> `partial` -> `implemented`).
 
+### 🔗 Runnable material outside the handbook
+
+The examples above remain **planned**. For three of these themes, runnable material already exists outside this handbook: the proofs of concept (PoCs) of a study group, in the public repository [`ackermann-inverse/grupo-de-estudos`](https://github.com/ackermann-inverse/grupo-de-estudos). According to that repository's README, they run locally, on CPU, with open models via Ollama or in a mock mode that needs no model download. That material is in Portuguese, does not follow the standard structure described above, has its own license (content under CC BY 4.0 and code under MIT, per that repository's `LICENSE` and `LICENSE-CODE` files) and does not replace the planned examples; the correspondence is by theme.
+
+| Planned example | Existing PoC |
+|---|---|
+| EX-LLM-01, local RAG | [`poc2_rag`](https://github.com/ackermann-inverse/grupo-de-estudos/tree/main/encontros/2026/2026_06_21__21_00/demos/poc2_rag) (session 5); [`poc_a_retrieval`](https://github.com/ackermann-inverse/grupo-de-estudos/tree/main/encontros/2026/2026_06_28__21_00/demos/poc_a_retrieval) and [`poc_b_rerank`](https://github.com/ackermann-inverse/grupo-de-estudos/tree/main/encontros/2026/2026_06_28__21_00/demos/poc_b_rerank) (session 6) |
+| EX-EVAL-01, eval harness | [`poc_c_eval`](https://github.com/ackermann-inverse/grupo-de-estudos/tree/main/encontros/2026/2026_06_28__21_00/demos/poc_c_eval) (session 6) |
+| EX-AGT-07, tracing | [`poc_d_observability`](https://github.com/ackermann-inverse/grupo-de-estudos/tree/main/encontros/2026/2026_06_28__21_00/demos/poc_d_observability) (session 6) |
+
 ---
 
 ## 🧾 Contributing examples
