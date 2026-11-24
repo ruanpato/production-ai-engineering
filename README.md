@@ -6,6 +6,11 @@
 
 > **De modelos a agentes — sistemas de IA como software crítico.**
 
+**English:** *AI Engineering in Production* is an open technical handbook, in English and Brazilian
+Portuguese, on designing, operating and governing AI systems in production. Read it
+[on the site](https://ruanpato.com/production-ai-engineering/en/) or start from
+[content/en/index.md](content/en/index.md).
+
 Rascunho técnico aberto sobre como projetar, operar e governar sistemas de IA em ambientes corporativos:
 ML tradicional, LLMs, RAG, Agentic AI, segurança, governança, observabilidade, FinOps e deployment.
 O conteúdo é **legível direto no GitHub** e também serve de base para o site (MkDocs/GitHub Pages) e futuro PDF.
